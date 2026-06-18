@@ -1,198 +1,827 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Flappy Bird</title>
+  <meta charset="UTF-8" />
+  <title>Goldasht Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+  	
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Zain' sans-serif;
+    }
 
-<style>
-body{
-    margin:0;
-    overflow:hidden;
-    background:#70c5ce;
-    touch-action:none;
+    body {
+      background: #0c0f15;
+      color: #eaeef2;
+      line-height: 1.7;
+      direction: rtl;
+      font-family: 'Zain' sans-serif;
+    }
+
+    :root {
+      --primary: #f15a24;
+      --primary-glow: #f15a24b3;
+      --bg-card: #1a2532;
+      --glass-bg: rgba(20, 30, 40, 0.8);
+      --border-light: #2f4055;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e2b38;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff7b4a;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* هدر */
+    .header {
+      background: rgba(8, 14, 23, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #007bff;
+      padding: 0.7rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+    .logo span {
+      font-size: 0.75rem;
+      color: #9ab3cc;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav a {
+      color: #d1e2f2;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+      padding: 0.3rem 0;
+    }
+    .nav a:hover {
+      color: var #007bff;
+    }
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #007bff;
+      transition: 0.3s;
+    }
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: #007bff;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* بخش اصلی فروشگاه */
+
+
+    /* گرید محصولات */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .product-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid #ffffff20;
+      border-radius: 30px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: 0.4s;
+      box-shadow: 0 10px 20px #00000060;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 20px 30px var(--primary-glow);
+    }
+
+    .product-icon {
+      font-size: 4rem;
+      color: ;
+      margin-bottom: 1rem;
+    }
+    .product-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .product-desc {
+      color: #c0d4e8;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffae70;
+      margin-bottom: 1.5rem;
+    }
+    .product-price span {
+      font-size: 1rem;
+      color: #9bb7cc;
+      font-weight: normal;
+    }
+
+    .btn-shop {
+      background: var(--primary);
+      border: none;
+      color: #0b0f15;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 2px solid transparent;
+      margin-top: auto;
+    }
+    .btn-shop:hover {
+      background: #ff7b4a;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px #f15a2440;
+    }
+
+    /* بخش ویژه (پرفروش‌ها) */
+    .featured-section {
+      margin: 4rem 0;
+      background: #101a24;
+      border-radius: 3rem;
+      padding: 3rem 2rem;
+    }
+    .featured-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    /* فوتر */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0c141f;
+      border-top: 1px solid #f15a2450;
+      color: #aac2da;
+      margin-top: 3rem;
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+      .nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .shop-header h2 {
+        font-size: 2.4rem;
+      }
+    }
+  
+:root {
+  --blue-1: #7c8cff;
+  --blue-2: #5b6dff;
+  --blue-3: #7b2cff;
+
+  --bg-1: #050505;
+  --bg-2: #0b0b0f;
+
+  --text-main: #f9f6ee;
+  --text-muted: #aaa39a;
+
+  --danger: #ff4f4f;
+  --accent: #8a5cff;
 }
 
-canvas{
-    display:block;
-    width:100vw;
-    height:100vh;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+  background:
+    radial-gradient(circle at 10% 0%, #1b1f4d 0, transparent 45%),
+    radial-gradient(circle at 90% 100%, #2b1648 0, transparent 50%),
+    radial-gradient(circle at 50% 0%, #222 0, #050505 65%);
 }
-</style>
+
+    .wrapper {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 18px;
+      padding: 24px 22px 20px;
+      background:
+        linear-gradient(135deg, rgba(124, 140, 255, 0.08), rgba(12, 12, 12, 0.9)),
+        radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.35), transparent 55%);
+      border: 1px solid rgba(124, 140, 255, 0.35);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(124, 140, 255, 0.8), rgba(46, 204, 113, 0.3));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+.logo-circle {
+  background:
+    conic-gradient(
+      from 210deg,
+      #dfe4ff,
+      #7c8cff,
+      #5b6dff,
+      #7b2cff,
+      #dfe4ff
+    );
+}
+
+.logo-circle-inner {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      #ffffff,
+      #2a2f6a 60%,
+      #050505 100%
+    );
+}
+
+.brand-text-main {
+  background:
+    linear-gradient(
+      120deg,
+      #dfe4ff,
+      #7c8cff,
+      #5b6dff,
+      #7b2cff,
+      #dfe4ff
+    );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--green-1);
+      margin-top: 2px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(124, 140, 255, 0.6);
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green-1);
+      background: radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.2), transparent 70%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #24ff8d;
+      box-shadow: 0 0 8px rgba(36, 255, 141, 0.9);
+    }
+    
+    .red-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 1);
+}
+
+    .form {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 13px;
+    }
+
+    .field-label {
+      color: #ddd2bf;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .field-label span.info {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .field select,
+    .field input {
+      background: rgba(5, 5, 5, 0.9);
+      border-radius: 9px;
+      border: 1px solid rgba(124, 140, 255, 0.3);
+      padding: 7px 9px;
+      color: var(--text-main);
+      font: inherit;
+      outline: none;
+      transition: border 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .field select:focus,
+    .field input:focus {
+      border-color: var(--green-1);
+      box-shadow: 0 0 0 1px rgba(124, 140, 255, 0.4);
+      background: rgba(8, 8, 8, 0.95);
+    }
+
+    .field input[type="number"]::-webkit-inner-spin-button,
+    .field input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .field input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    .protocol-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      position: relative;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(124, 140, 255, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.18), rgba(5, 5, 5, 0.96));
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #f3e7cd;
+      user-select: none;
+    }
+
+    .chip input {
+      display: none;
+    }
+
+    .chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(124, 140, 255, 0.7);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+      background: transparent;
+    }
+
+    .chip.active {
+      border-color: var(--green-1);
+      color: #121212;
+      background: linear-gradient(135deg, #d5f5e3, #7c8cff, #5b6dff);
+      box-shadow:
+        0 0 16px rgba(124, 140, 255, 0.8),
+        0 8px 18px rgba(0, 0, 0, 0.8);
+    }
+
+    .chip.active .chip-dot {
+      background: #111;
+      border-color: #111;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 16px 0 8px;
+    }
+
+    .hints {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hint-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(112, 112, 112, 0.7);
+      padding: 3px 9px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+ .btn-primary {
+  border-radius: 999px;
+  border: none;
+  padding: 9px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #111;
+
+background: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(124, 140, 255, 0.6);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  white-space: nowrap;
+  font-family: 'Zain' sans-serif;
+}
+    .btn-primary span.icon {
+      font-size: 15px;
+      font-family: 'Zain' sans-serif;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .product-card {
+      background:         linear-gradient(135deg, rgba(124, 140, 255, 0.08), rgba(12, 12, 12, 0.9)),
+        radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.35), transparent 55%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(124, 140, 255, 0.35);
+      border-radius: 30px;
+      padding: 24px 22px 20px;
+      text-align: center;
+      transition: 0.4s;
+      box-shadow: 0 10px 20px #00000060;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(124, 140, 255, 0.25);
+      box-shadow: 0 20px 30px rgba(124, 140, 255, 0.25);
+    }
+
+    .product-icon {
+      font-size: 4rem;
+      color: #b8d0e5;
+      margin-bottom: 1rem;
+    }
+    .product-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .product-desc {
+      color: #c0d4e8;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffae70;
+      margin-bottom: 1.5rem;
+    }
+    .product-price span {
+      font-size: 1rem;
+      color: #9bb7cc;
+      font-weight: normal;
+    }
+
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow:
+        0 13px 28px rgba(0, 0, 0, 0.9),
+        0 0 24px rgba(124, 140, 255, 0.95);
+        font-family: 'Zain' sans-serif;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(124, 140, 255, 0.7);
+        font-family: 'Zain' sans-serif;
+    }
+
+    .output-wrapper {
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(124, 140, 255, 0.35);
+      background: radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.17), rgba(4, 4, 4, 0.98));
+      padding: 10px 10px 8px;
+    }
+
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .output-title {
+      font-size: 13px;
+      color: #d5f5e3;
+    }
+
+    .output-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(124, 140, 255, 0.6);
+      padding: 4px 10px;
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--green-1);
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.12s ease, color 0.12s ease, box-shadow 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: radial-gradient(circle at 0 0, rgba(124, 140, 255, 0.4), #020202);
+      box-shadow: 0 0 10px rgba(124, 140, 255, 0.7);
+      color: #111;
+    }
+
+    .copy-btn.copied {
+      background: rgba(46, 204, 113, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      max-height: 165px;
+      resize: vertical;
+      border-radius: 10px;
+      border: 1px solid rgba(124, 140, 255, 0.25);
+      background: rgba(2, 2, 2, 0.97);
+      color: #d5f5e3;
+      font-family: monospace;
+      font-size: 11px;
+      padding: 7px 8px;
+      outline: none;
+      direction: ltr;
+    }
+
+    .meta {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+    }
+
+    .meta strong {
+      color: #d5f5e3;
+    }
+
+    .error {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--danger);
+      display: none;
+    }
+    
+    
+        .shop-container {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 5%;
+    }
+
+    .shop-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .shop-header h2 {
+      font-size: 5rem;
+      background: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+      display: inline-block;
+      border-bottom: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+      padding-bottom: 0rem;
+    }
+    
+    .shop-header p {
+      color: #b8d0e5;
+      font-size: 1rem;
+      margin-top: 0rem;
+    }
+    
+    
+        .goz-container {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 5%;
+    }
+
+    .goz-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .goz-header h2 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #eaf2ff, #7c8cff, #5b6dff, #c7d2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 0.5rem;
+    }
+    .goz-header p {
+      color: #b8d0e5;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .card { padding: 18px 14px 14px; }
+      .brand-text-main { font-size: 22px; }
+      .logo-circle { width: 34px; height: 34px; }
+      .footer-row { flex-direction: column-reverse; align-items: stretch; }
+      .btn-primary { justify-content: center; width: 100%; }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrapper">
+  	  <header class="header">
+    <div class="logo">
+      <h1>گلدشت رولپلی</h1>
 
-<canvas id="game"></canvas>
+    </div>
+    <nav class="nav" id="nav-menu">
+      <a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a>
+      <a href="shop.html"><i class="fas fa-wallet"></i> فروشگاه</a>
+      <a href="#vip">درباره ما</a>
+      <a href="#contact">درباره ما</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+  
+  <main class="goz-container">
+    <div class="goz-header">
+      <h2>گلدشت رولپلی</h2>
+      
+      <p>با ما RP را تجربه کنید</p>
+    </div>
+    
+       <img
+src="./assets/Logo.png"
+alt="Server-Logo"
+width = 200>
+    
+           <button class="btn-primary" id="vorod" type="button">
+          <span>ورود به بازی</span>
+        </button>
+      
+  
 
+  </div>
+  
 <script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-function resize(){
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-}
-resize();
-addEventListener("resize", resize);
-
-let bird = {
-    x: 100,
-    y: canvas.height/2,
-    size: 20,
-    velocity: 0
-};
-
-const gravity = 0.5;
-const jump = -8;
-
-let pipes = [];
-let score = 0;
-let gameOver = false;
-
-function createPipe(){
-    let gap = 180;
-    let topHeight = Math.random() * (canvas.height - gap - 200) + 50;
-
-    pipes.push({
-        x: canvas.width,
-        width: 70,
-        top: topHeight,
-        bottom: canvas.height - topHeight - gap,
-        passed: false
-    });
-}
-
-function flap(){
-    if(gameOver){
-        restart();
-        return;
-    }
-    bird.velocity = jump;
-}
-
-document.addEventListener("click", flap);
-document.addEventListener("touchstart", flap);
-
-function restart(){
-    bird.y = canvas.height/2;
-    bird.velocity = 0;
-    pipes = [];
-    score = 0;
-    gameOver = false;
-}
-
-setInterval(()=>{
-    if(!gameOver) createPipe();
-}, 1800);
-
-function update(){
-
-    if(gameOver) return;
-
-    bird.velocity += gravity;
-    bird.y += bird.velocity;
-
-    if(bird.y < 0 || bird.y > canvas.height){
-        gameOver = true;
-    }
-
-    for(let i=0;i<pipes.length;i++){
-
-        let p = pipes[i];
-        p.x -= 4;
-
-        if(!p.passed && p.x + p.width < bird.x){
-            p.passed = true;
-            score++;
-        }
-
-        if(
-            bird.x + bird.size > p.x &&
-            bird.x - bird.size < p.x + p.width &&
-            (
-                bird.y - bird.size < p.top ||
-                bird.y + bird.size > canvas.height - p.bottom
-            )
-        ){
-            gameOver = true;
-        }
-    }
-
-    pipes = pipes.filter(p=>p.x+p.width>0);
-}
-
-function draw(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    // آسمان
-    ctx.fillStyle="#70c5ce";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    // لوله‌ها
-    ctx.fillStyle="#2ecc71";
-
-    pipes.forEach(p=>{
-
-        ctx.fillRect(
-            p.x,
-            0,
-            p.width,
-            p.top
-        );
-
-        ctx.fillRect(
-            p.x,
-            canvas.height-p.bottom,
-            p.width,
-            p.bottom
-        );
-    });
-
-    // پرنده
-    ctx.fillStyle="yellow";
-    ctx.beginPath();
-    ctx.arc(
-        bird.x,
-        bird.y,
-        bird.size,
-        0,
-        Math.PI*2
-    );
-    ctx.fill();
-
-    // امتیاز
-    ctx.fillStyle="white";
-    ctx.font="40px Arial";
-    ctx.fillText(score, 20, 50);
-
-    if(gameOver){
-        ctx.fillStyle="black";
-        ctx.font="50px Arial";
-        ctx.fillText(
-            "Game Over",
-            canvas.width/2 - 140,
-            canvas.height/2
-        );
-
-        ctx.font="25px Arial";
-        ctx.fillText(
-            "برای شروع دوباره لمس کن",
-            canvas.width/2 - 120,
-            canvas.height/2 + 50
-        );
-    }
-}
-
-function loop(){
-    update();
-    draw();
-    requestAnimationFrame(loop);
-}
-
-createPipe();
-loop();
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
 </script>
-
-</body>
-</html>
