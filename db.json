@@ -55,6 +55,12 @@
           "name": "بوس",
           "icon": "fa-heart",
           "chats": []
+        },
+        {
+          "id": "f_dlv3c1ga",
+          "name": "بوس",
+          "icon": "fa-heart",
+          "chats": []
         }
       ],
       "pinned": [],
@@ -217,5 +223,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "0f3bcd309fde5e2322dd39e0162689566eea47e1"
+  "sha": "7a9d067d85fbc7a0329e2b1afb3912760e747944"
 }
