@@ -390,6 +390,12 @@
           "from": "baloch",
           "text": "چن بار زدم ی گپ چن بار ساخته شد",
           "time": "2026-10-15T15:04:41.340Z"
+        },
+        {
+          "id": 1792076686708,
+          "from": "baloch",
+          "text": "چیچیه",
+          "time": "2026-10-15T15:04:46.617Z"
         }
       ],
       "createdAt": "2026-10-15T15:02:26.333Z",
@@ -421,5 +427,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "bb0f8279a98fb671cd5d3457c1c7b4d684114a3f"
+  "sha": "39ff0ac71e9023074e2398b6e58e3ce4eca35cd1"
 }
