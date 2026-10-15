@@ -134,7 +134,8 @@
       ],
       "subscribers": [
         "dolpary",
-        "regnar"
+        "regnar",
+        "zaphkiel"
       ],
       "messages": [],
       "createdAt": "2026-10-15T13:52:31.341Z",
@@ -216,5 +217,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "98e11855c83b43488131b05382b97805f7f6fde5"
+  "sha": "300c67a5427f00660817f82b2a9c65796cc9bdb7"
 }
