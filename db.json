@@ -127,7 +127,14 @@
         "regnar",
         "amirali"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792075965923,
+          "from": "regnar",
+          "text": "خوش اومدی 👋",
+          "time": "2026-10-15T14:52:45.805Z"
+        }
+      ],
       "createdAt": "2026-10-15T14:51:18.341Z",
       "reads": {
         "regnar": "2026-10-15T14:51:20.553Z"
@@ -138,5 +145,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "20e6bd11c7017fcb3a397149f542d87c8a6da6c8"
+  "sha": "596f7bac0cfb4bf00fead7274c5288a405d0497c"
 }
