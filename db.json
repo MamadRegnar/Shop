@@ -220,7 +220,14 @@
         "zaphkiel",
         "regnar"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792076283308,
+          "from": "regnar",
+          "text": "سلام",
+          "time": "2026-10-15T14:58:03.187Z"
+        }
+      ],
       "createdAt": "2026-10-15T14:57:47.116Z",
       "reads": {
         "zaphkiel": "2026-10-15T14:57:50.489Z",
@@ -232,5 +239,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "792dd2b046d500e6424e6bdbdcbba82334483d3a"
+  "sha": "f9642bfac7029e4b0cfbfd57e62fda6149cb3511"
 }
