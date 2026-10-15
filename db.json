@@ -211,11 +211,20 @@
       "reads": {
         "regnar": "2026-10-15T14:57:35.733Z"
       }
+    },
+    "dm__regnar__zaphkiel": {
+      "type": "dm",
+      "participants": [
+        "zaphkiel",
+        "regnar"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T14:57:47.116Z"
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "5369c315449c6a96b959a34ef3374546000211a4"
+  "sha": "0bbb5dd0300d9ead82c3c4fb6eb72578cd0d61e9"
 }
