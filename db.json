@@ -72,17 +72,6 @@
       "pinned": [],
       "createdAt": "2026-10-15T13:53:23.868Z",
       "lastSeen": "2026-10-15T13:53:23.868Z"
-    },
-    "gozo": {
-      "displayName": "گوزو",
-      "passwordHash": "96e6a9ada3ec621f74e2d55f3f58302f8c094aadb5d466b0b93fd5e117aca4d3",
-      "avatarPath": null,
-      "premium": false,
-      "bio": "",
-      "folders": [],
-      "pinned": [],
-      "createdAt": "2026-10-15T14:15:54.221Z",
-      "lastSeen": "2026-10-15T14:15:54.245Z"
     }
   },
   "chats": {
@@ -263,5 +252,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "fe684dd1712695d7b8aabcdb98584335e1cc5016"
+  "sha": "12e9902c03559d90526aeb15d6e4a3e3a75777d9"
 }
