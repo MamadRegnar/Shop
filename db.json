@@ -3,7 +3,7 @@
     "regnar": {
       "displayName": "ʀᴇɢ-ɴᴀʀ↴",
       "passwordHash": "faf9d4b963f5cd361112fbaffb97de5509b0798f700f875a2a0b90c09e69d51b",
-      "avatarPath": null,
+      "avatarPath": "avatars/regnar.jpg",
       "premium": false,
       "bio": "",
       "folders": [],
@@ -115,5 +115,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "a708233f80f52216b4101fb7dc28962cdfea9239"
+  "sha": "8fce3ccc7783de78c2c12c647ef039babb0f2c7b"
 }
