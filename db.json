@@ -231,7 +231,7 @@
       "createdBy": "regnar",
       "reads": {
         "regnar": "2026-10-15T15:01:22.037Z",
-        "amo_porang": "2026-10-15T15:01:45.722Z"
+        "amo_porang": "2026-10-15T15:02:16.834Z"
       }
     },
     "dm__regnar__zaphkiel": {
@@ -265,5 +265,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "a55c448da5e0e41ccc63e867936c4b3403e7edd4"
+  "sha": "95974634b37deae073c0c27f6592882698675d27"
 }
