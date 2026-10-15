@@ -1,11 +1,5 @@
 {
-  "users": {
-    "devik": {
-      "displayName": "Devik",
-      "passwordHash": "f6e2480c7250fde3d0e185bc703190bc48c64e282a9a3a0fcc6dfa4b3f033fce",
-      "createdAt": "2026-10-15T12:49:25.916Z"
-    }
-  },
+  "users": {},
   "chats": {
     "dev__devy": {
       "participants": [
@@ -109,5 +103,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "fe1623612f7580bf1c17f992a9bd57e4b867b364"
+  "sha": "cb4fdcdf093aa8bd06aa436cee0880e6e8b1c230"
 }
