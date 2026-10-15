@@ -18,7 +18,9 @@
     "devil": {
       "displayName": "Devil",
       "passwordHash": "08a205c439e38b4695e930efac97844a3cc655e2d009a2752c93c8cb0a5bd937",
-      "createdAt": "2026-10-15T12:50:04.493Z"
+      "createdAt": "2026-10-15T12:50:04.493Z",
+      "avatarPath": "avatars/devil.jpg",
+      "avatarUpdatedAt": "2026-10-15T13:00:01.278Z"
     }
   },
   "chats": {
