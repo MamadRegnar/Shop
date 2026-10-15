@@ -374,7 +374,14 @@
         "baloch",
         "regnar"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792076612667,
+          "from": "baloch",
+          "text": "سللم کویی",
+          "time": "2026-10-15T15:03:32.404Z"
+        }
+      ],
       "createdAt": "2026-10-15T15:03:25.759Z"
     }
   },
@@ -382,5 +389,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "df76f227b1afa6b70a5f004ab50f45c9c8f4435d"
+  "sha": "917e4862dfc27d43cbdc20f4d33cc3aa8d797410"
 }
