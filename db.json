@@ -4,6 +4,11 @@
       "displayName": "Dev",
       "passwordHash": "fcc1ee48a2c20dd9e6f5d6a66a3be1f6cf1669a187d0e7dd550ec218a1e676f6",
       "createdAt": "2026-10-15T12:47:39.217Z"
+    },
+    "devy": {
+      "displayName": "DevY",
+      "passwordHash": "bb6bc11c3ebfaa6cef0ace1d4e72a09a51d4e8cf6005cc2ffb511a1915fefec3",
+      "createdAt": "2026-10-15T12:48:04.705Z"
     }
   },
   "chats": {}
