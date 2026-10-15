@@ -153,7 +153,8 @@
       "createdAt": "2026-10-15T13:52:31.341Z",
       "reads": {
         "dolpary": "2026-10-15T13:52:34.236Z",
-        "regnar": "2026-10-15T14:53:00.818Z"
+        "regnar": "2026-10-15T14:53:00.818Z",
+        "baloch": "2026-10-15T15:05:53.902Z"
       }
     },
     "dm__amirali__regnar": {
@@ -428,5 +429,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "13e3e2dd22d175dfae2d8d78ea9ebec19480b1ef"
+  "sha": "f6cd0b96b8554b9f73e84c807836b8f3ece86fd5"
 }
