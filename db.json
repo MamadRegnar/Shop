@@ -59,7 +59,7 @@
       ],
       "pinned": [],
       "createdAt": "2026-10-15T13:44:45.678Z",
-      "lastSeen": "2026-10-15T13:52:15.524Z",
+      "lastSeen": "2026-10-15T13:53:00.425Z",
       "chatBg": "assets/bg/dolpary.jpg"
     }
   },
@@ -237,5 +237,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "f2de9c33e64f7e7a98bf3e89885e74c715800168"
+  "sha": "a0ec4c6f7b30ae285d3ba131f877c3ccd38986e9"
 }
