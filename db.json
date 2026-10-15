@@ -9,7 +9,7 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T14:23:11.927Z",
-      "lastSeen": "2026-10-15T14:51:14.861Z"
+      "lastSeen": "2026-10-15T14:57:27.787Z"
     },
     "amirali": {
       "displayName": "امیرعلی",
@@ -217,5 +217,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "0efc2e09fb03f25fdf4754328f772861be43a52a"
+  "sha": "91cc4cee34c79b3c1f87e52f4c7a114e97c85c38"
 }
