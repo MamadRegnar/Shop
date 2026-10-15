@@ -22,6 +22,16 @@
       "avatarPath": "avatars/devil.jpg",
       "avatarUpdatedAt": "2026-10-15T13:00:31.464Z",
       "bio": ""
+    },
+    "mamad": {
+      "displayName": "ممد",
+      "passwordHash": "81bc8cc9f29e0acb891f66f86e49a2ef5bfcc8f091ba04c52f673dd874975798",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T13:22:21.542Z"
     }
   },
   "chats": {
@@ -103,5 +113,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "9cba07fe8ce5c69166e2b177a8ea97e81a4eba02"
+  "sha": "0ad08686c9ecf0aafe19f0d17fe83cc09dccfcdc"
 }
