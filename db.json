@@ -169,10 +169,13 @@
         "devil"
       ],
       "messages": [],
-      "createdAt": "2026-10-15T13:45:07.520Z"
+      "createdAt": "2026-10-15T13:45:07.520Z",
+      "reads": {
+        "dolpary": "2026-10-15T13:45:10.132Z"
+      }
     }
   },
   "config": {},
   "broadcast": null,
-  "sha": "f8ba036776e4354c7439979620979efe6691e2be"
+  "sha": "0ccc33e50240945c356e7956638c9514b12c059c"
 }
