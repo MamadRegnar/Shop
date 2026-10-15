@@ -226,6 +226,12 @@
           "from": "regnar",
           "text": "سلام",
           "time": "2026-10-15T14:58:03.187Z"
+        },
+        {
+          "id": 1792076286732,
+          "from": "regnar",
+          "text": "سلام",
+          "time": "2026-10-15T14:58:05.880Z"
         }
       ],
       "createdAt": "2026-10-15T14:57:47.116Z",
@@ -239,5 +245,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "f9642bfac7029e4b0cfbfd57e62fda6149cb3511"
+  "sha": "9a9a5e84cb4a6eafd6d405e301f0f5aef8479266"
 }
