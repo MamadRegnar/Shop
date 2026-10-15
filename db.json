@@ -24,25 +24,6 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T13:23:16.694Z"
-    },
-    "dolpary": {
-      "displayName": "دول‌پاور",
-      "passwordHash": "983d79dcff8e6ea48b87661ebf225c7cd2116a7564960aa2a516e76b465591f4",
-      "avatarPath": null,
-      "premium": false,
-      "bio": "",
-      "folders": [
-        {
-          "id": "f_j74znbt8",
-          "name": "بوس",
-          "icon": "fa-heart",
-          "chats": []
-        }
-      ],
-      "pinned": [],
-      "createdAt": "2026-10-15T13:44:45.678Z",
-      "lastSeen": "2026-10-15T13:53:00.425Z",
-      "chatBg": "assets/bg/dolpary.jpg"
     }
   },
   "chats": {
@@ -170,5 +151,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "9d7ebf696ae084519309506a8b5b0ba08c48b091"
+  "sha": "ad3ccba85c81627220b24493b310ffc06198327b"
 }
