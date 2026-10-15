@@ -14,6 +14,11 @@
       "displayName": "Devik",
       "passwordHash": "f6e2480c7250fde3d0e185bc703190bc48c64e282a9a3a0fcc6dfa4b3f033fce",
       "createdAt": "2026-10-15T12:49:25.916Z"
+    },
+    "devil": {
+      "displayName": "Devil",
+      "passwordHash": "08a205c439e38b4695e930efac97844a3cc655e2d009a2752c93c8cb0a5bd937",
+      "createdAt": "2026-10-15T12:50:04.493Z"
     }
   },
   "chats": {
