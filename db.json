@@ -120,11 +120,20 @@
         "dolpary": "2026-10-15T13:52:34.236Z",
         "regnar": "2026-10-15T14:41:43.589Z"
       }
+    },
+    "dm__amirali__regnar": {
+      "type": "dm",
+      "participants": [
+        "regnar",
+        "amirali"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T14:51:18.341Z"
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "c5db383f6d56cd48d16c3c1db110c18241b3c431"
+  "sha": "763a4603344d2b2096855aba3704b13f6e6d00e1"
 }
