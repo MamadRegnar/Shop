@@ -128,12 +128,15 @@
         "amirali"
       ],
       "messages": [],
-      "createdAt": "2026-10-15T14:51:18.341Z"
+      "createdAt": "2026-10-15T14:51:18.341Z",
+      "reads": {
+        "regnar": "2026-10-15T14:51:20.553Z"
+      }
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "763a4603344d2b2096855aba3704b13f6e6d00e1"
+  "sha": "20e6bd11c7017fcb3a397149f542d87c8a6da6c8"
 }
