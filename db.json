@@ -319,7 +319,14 @@
       "admins": [
         "baloch"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792076557899,
+          "from": "baloch",
+          "text": "سلام بچهای عزیز😂",
+          "time": "2026-10-15T15:02:37.188Z"
+        }
+      ],
       "createdAt": "2026-10-15T15:02:26.333Z",
       "createdBy": "baloch"
     }
@@ -328,5 +335,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "7ccadf92c5f2da130eba7ee7bd94e0f3aed0d21b"
+  "sha": "b3e43dc23ea992ef32be24c77920312587fd133e"
 }
