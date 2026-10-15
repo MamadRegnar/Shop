@@ -43,6 +43,17 @@
       "pinned": [],
       "createdAt": "2026-10-15T14:57:01.896Z",
       "lastSeen": "2026-10-15T14:57:09.136Z"
+    },
+    "baloch": {
+      "displayName": "aQa_baloch",
+      "passwordHash": "72b30b52e552bb5e97019d885f2905a9a76b3742702b16de2ef2b3d91c029166",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T15:02:13.393Z",
+      "lastSeen": "2026-10-15T15:02:13.417Z"
     }
   },
   "chats": {
@@ -254,5 +265,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "75b02e5f41eb656b0ce0d417bed1db1483a2374d"
+  "sha": "a55c448da5e0e41ccc63e867936c4b3403e7edd4"
 }
