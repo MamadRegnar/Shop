@@ -243,11 +243,12 @@
       "messages": [],
       "createdAt": "2026-10-15T13:52:31.341Z",
       "reads": {
-        "dolpary": "2026-10-15T13:52:34.236Z"
+        "dolpary": "2026-10-15T13:52:34.236Z",
+        "regnar": "2026-10-15T13:53:38.558Z"
       }
     }
   },
   "config": {},
   "broadcast": null,
-  "sha": "a49be5bd6dd37e7036fc300142136b0fdc3f3d76"
+  "sha": "8775d176378c13af4fe06254d3e18e6d167b0e45"
 }
