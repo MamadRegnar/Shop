@@ -168,7 +168,14 @@
         "dolpary",
         "devil"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792071938268,
+          "from": "dolpary",
+          "text": "😂",
+          "time": "2026-10-15T13:45:37.633Z"
+        }
+      ],
       "createdAt": "2026-10-15T13:45:07.520Z",
       "reads": {
         "dolpary": "2026-10-15T13:45:12.418Z"
@@ -177,5 +184,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "caaa2f5fc65b4d84079b17a9cf4000a7cb82d8ce"
+  "sha": "8176f8a33c65608503492b5a8601011b539d0ce1"
 }
