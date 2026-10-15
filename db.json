@@ -345,6 +345,12 @@
           "from": "zaphkiel",
           "text": "فقط پک استیکر تخمیه",
           "time": "2026-10-15T15:02:56.873Z"
+        },
+        {
+          "id": 1792076581322,
+          "from": "zaphkiel",
+          "text": "استیکر جدید بنداااا",
+          "time": "2026-10-15T15:03:00.503Z"
         }
       ],
       "createdAt": "2026-10-15T15:02:26.333Z",
@@ -358,5 +364,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "72a240e7b0b864a08ca825eef2774b2d75714189"
+  "sha": "1f0cb89a8c28e12e8bd5af06dbcad1199bd0f52a"
 }
