@@ -277,11 +277,29 @@
       "messages": [],
       "createdAt": "2026-10-15T15:02:25.087Z",
       "createdBy": "baloch"
+    },
+    "group__7tlepej9": {
+      "type": "group",
+      "name": "کیری فیسا",
+      "avatarPath": null,
+      "members": {
+        "baloch": "owner",
+        "regnar": "member",
+        "amirali": "member",
+        "amo_porang": "member",
+        "zaphkiel": "member"
+      },
+      "admins": [
+        "baloch"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T15:02:27.158Z",
+      "createdBy": "baloch"
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "d9f8a8fdc8baf6534f3f966e8fec49616077a5d7"
+  "sha": "724c28079aee0b0851d9cc0ce65f5326320b5687"
 }
