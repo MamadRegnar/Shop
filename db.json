@@ -10,6 +10,17 @@
       "pinned": [],
       "createdAt": "2026-10-15T14:23:11.927Z",
       "lastSeen": "2026-10-15T14:39:46.234Z"
+    },
+    "amirali": {
+      "displayName": "امیرعلی",
+      "passwordHash": "7a7244a856e52da455ef117dc8b1a238d61bd4ca2a6bf567b3f8fe298eca77a6",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T14:47:53.255Z",
+      "lastSeen": "2026-10-15T14:47:53.260Z"
     }
   },
   "chats": {
@@ -115,5 +126,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "0f1de2bcbd447a59320d9e8f04fa73afd4655828"
+  "sha": "403b207a9f16ba83040985c672de635fb32190e9"
 }
