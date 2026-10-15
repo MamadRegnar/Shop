@@ -1,5 +1,17 @@
 {
-  "users": {},
+  "users": {
+    "regnar": {
+      "displayName": "ʀᴇɢ-ɴᴀʀ↴",
+      "passwordHash": "faf9d4b963f5cd361112fbaffb97de5509b0798f700f875a2a0b90c09e69d51b",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T14:23:11.927Z",
+      "lastSeen": "2026-10-15T14:23:11.959Z"
+    }
+  },
   "chats": {
     "dev__devy": {
       "participants": [
@@ -103,5 +115,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "ec59ef5adce6c528842e6b45fdf1ff58ac6e2e52"
+  "sha": "8731a342dd4556cf629b51788a54863fb2931b92"
 }
