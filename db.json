@@ -208,6 +208,12 @@
           "from": "regnar",
           "text": "سلام",
           "time": "2026-10-15T14:55:59.393Z"
+        },
+        {
+          "id": 1792076515701,
+          "from": "amo_porang",
+          "text": "جونننن",
+          "time": "2026-10-15T15:01:54.957Z"
         }
       ],
       "createdAt": "2026-10-15T14:55:38.686Z",
@@ -248,5 +254,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "610b9ff5d4d2783e34ab35bb6eb08ead1ca97b30"
+  "sha": "75b02e5f41eb656b0ce0d417bed1db1483a2374d"
 }
