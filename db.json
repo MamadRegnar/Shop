@@ -82,7 +82,26 @@
           "time": "2026-10-15T12:59:35.370Z"
         }
       ]
+    },
+    "channel__z01ma4io": {
+      "type": "channel",
+      "name": "اخبار کون",
+      "description": "کون بدید بهم",
+      "avatarPath": null,
+      "isPublic": false,
+      "verified": false,
+      "owner": "devil",
+      "admins": [
+        "devil"
+      ],
+      "subscribers": [
+        "devil"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T13:17:16.726Z"
     }
   },
-  "broadcast": null
+  "config": {},
+  "broadcast": null,
+  "sha": "9cba07fe8ce5c69166e2b177a8ea97e81a4eba02"
 }
