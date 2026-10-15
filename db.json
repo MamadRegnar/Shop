@@ -238,6 +238,12 @@
           "from": "regnar",
           "text": "سلام",
           "time": "2026-10-15T14:58:08.776Z"
+        },
+        {
+          "id": 1792076300599,
+          "from": "regnar",
+          "text": "⚡",
+          "time": "2026-10-15T14:58:19.755Z"
         }
       ],
       "createdAt": "2026-10-15T14:57:47.116Z",
@@ -251,5 +257,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "d84411bd29858dbbe6d7adf8922da78bf8369c48"
+  "sha": "78b11c21aa0cd46e1fb927e963f147f7f29b1bc9"
 }
