@@ -159,12 +159,15 @@
       ],
       "messages": [],
       "createdAt": "2026-10-15T14:55:37.283Z",
-      "createdBy": "regnar"
+      "createdBy": "regnar",
+      "reads": {
+        "regnar": "2026-10-15T14:55:40.671Z"
+      }
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "133fff6fbed8dfc69993b1634b4d08199666d818"
+  "sha": "bce63340f9e703fd51fc49b4771fe07e6a343947"
 }
