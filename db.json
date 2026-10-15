@@ -240,7 +240,7 @@
       "createdBy": "regnar",
       "reads": {
         "regnar": "2026-10-15T15:01:22.037Z",
-        "amo_porang": "2026-10-15T15:03:43.436Z",
+        "amo_porang": "2026-10-15T15:08:07.409Z",
         "zaphkiel": "2026-10-15T15:03:21.239Z"
       }
     },
@@ -429,5 +429,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "3a7f439bbf45de1ad8b94c2f3cbb330358eaea5d"
+  "sha": "2ac448c811fa24e0fe35e9914350f774e01cd716"
 }
