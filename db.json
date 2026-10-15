@@ -175,7 +175,8 @@
       "avatarPath": null,
       "members": {
         "regnar": "owner",
-        "amirali": "member"
+        "amirali": "member",
+        "amo_porang": "member"
       },
       "admins": [
         "regnar"
@@ -226,5 +227,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "0bbb5dd0300d9ead82c3c4fb6eb72578cd0d61e9"
+  "sha": "927a747e316026147a2e3e5d768213ec5b7d0134"
 }
