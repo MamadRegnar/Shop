@@ -259,7 +259,9 @@
       }
     }
   },
-  "config": {},
+  "config": {
+    "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
+  },
   "broadcast": null,
-  "sha": "813ea4d80181275e6ce1dadc92c5af7c1efd69cc"
+  "sha": "fe684dd1712695d7b8aabcdb98584335e1cc5016"
 }
