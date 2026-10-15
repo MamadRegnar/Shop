@@ -302,7 +302,8 @@
       "createdAt": "2026-10-15T15:02:27.158Z",
       "createdBy": "baloch",
       "reads": {
-        "baloch": "2026-10-15T15:02:30.547Z"
+        "baloch": "2026-10-15T15:02:30.547Z",
+        "zaphkiel": "2026-10-15T15:02:43.017Z"
       }
     },
     "group__i7yr88a4": {
@@ -335,5 +336,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "b3e43dc23ea992ef32be24c77920312587fd133e"
+  "sha": "aacf13cf279c74d6bb4f26c4c7ca84d793bda550"
 }
