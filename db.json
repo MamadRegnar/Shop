@@ -176,7 +176,8 @@
       "members": {
         "regnar": "owner",
         "amirali": "member",
-        "amo_porang": "member"
+        "amo_porang": "member",
+        "zaphkiel": "member"
       },
       "admins": [
         "regnar"
@@ -230,5 +231,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "5440f84ea7feffbd94fca343556080d0c03bbbf0"
+  "sha": "9cccb2cb1275f08117b6386136aafb9fa1a3167b"
 }
