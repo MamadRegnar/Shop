@@ -31,7 +31,7 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T14:56:54.308Z",
-      "lastSeen": "2026-10-15T14:57:02.225Z"
+      "lastSeen": "2026-10-15T15:01:41.596Z"
     },
     "zaphkiel": {
       "displayName": "Mahan",
@@ -247,5 +247,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "939c15db25fc6691085e5faaaf35c2f49e734b17"
+  "sha": "d051274e6e9688d9a158fd43038746427dba1bd0"
 }
