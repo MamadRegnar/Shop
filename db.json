@@ -32,6 +32,16 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T13:22:21.542Z"
+    },
+    "iiiiiiiii": {
+      "displayName": "Iiii",
+      "passwordHash": "1bdb739e34d8ae996e51bf210f3b7c86edca46d761ef976ffff5ab7f1e3091a6",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T13:23:16.694Z"
     }
   },
   "chats": {
@@ -113,5 +123,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "0ad08686c9ecf0aafe19f0d17fe83cc09dccfcdc"
+  "sha": "324107af21f21a58d10e2abedfdd69d74c41ad31"
 }
