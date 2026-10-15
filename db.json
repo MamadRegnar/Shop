@@ -213,9 +213,26 @@
       "reads": {
         "dolpary": "2026-10-15T13:50:18.836Z"
       }
+    },
+    "channel__txm7a1kk": {
+      "type": "channel",
+      "name": "سمپ رگنار",
+      "description": "",
+      "avatarPath": null,
+      "isPublic": true,
+      "verified": false,
+      "owner": "dolpary",
+      "admins": [
+        "dolpary"
+      ],
+      "subscribers": [
+        "dolpary"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T13:52:31.341Z"
     }
   },
   "config": {},
   "broadcast": null,
-  "sha": "e226fc2088a689d03ea9a06ff50f685341ee04e2"
+  "sha": "9c8afe73c85cf8724feec58b712b5db7438b932d"
 }
