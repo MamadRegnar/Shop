@@ -1,10 +1,5 @@
 {
   "users": {
-    "dev": {
-      "displayName": "Dev",
-      "passwordHash": "fcc1ee48a2c20dd9e6f5d6a66a3be1f6cf1669a187d0e7dd550ec218a1e676f6",
-      "createdAt": "2026-10-15T12:47:39.217Z"
-    },
     "devy": {
       "displayName": "DevY",
       "passwordHash": "bb6bc11c3ebfaa6cef0ace1d4e72a09a51d4e8cf6005cc2ffb511a1915fefec3",
@@ -241,5 +236,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "c06c6d73a9140656c9b8ea87152de86f26815e37"
+  "sha": "94a7104c9ca03919d40e3535c67763966ccee544"
 }
