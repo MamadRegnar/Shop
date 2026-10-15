@@ -49,7 +49,14 @@
       "avatarPath": null,
       "premium": false,
       "bio": "",
-      "folders": [],
+      "folders": [
+        {
+          "id": "f_j74znbt8",
+          "name": "بوس",
+          "icon": "fa-heart",
+          "chats": []
+        }
+      ],
       "pinned": [],
       "createdAt": "2026-10-15T13:44:45.678Z",
       "lastSeen": "2026-10-15T13:49:54.160Z",
@@ -210,5 +217,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "cce5cc82b9374191d82f04e30f0df0bb706ccdfc"
+  "sha": "0f3bcd309fde5e2322dd39e0162689566eea47e1"
 }
