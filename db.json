@@ -42,6 +42,17 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T13:23:16.694Z"
+    },
+    "dolpary": {
+      "displayName": "دول‌پاور",
+      "passwordHash": "983d79dcff8e6ea48b87661ebf225c7cd2116a7564960aa2a516e76b465591f4",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T13:44:45.678Z",
+      "lastSeen": "2026-10-15T13:44:45.697Z"
     }
   },
   "chats": {
@@ -154,5 +165,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "06d53c31be26db720667e9f456dcf74febc56443"
+  "sha": "88a427d8b0b254eede83ab82da78ccdedf772f63"
 }
