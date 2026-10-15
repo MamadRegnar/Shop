@@ -42,7 +42,7 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T14:57:01.896Z",
-      "lastSeen": "2026-10-15T14:57:01.911Z"
+      "lastSeen": "2026-10-15T14:57:09.136Z"
     }
   },
   "chats": {
@@ -216,5 +216,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "b1938e961c81e05ec5686ce60f42489339129449"
+  "sha": "98e11855c83b43488131b05382b97805f7f6fde5"
 }
