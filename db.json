@@ -223,7 +223,8 @@
       "messages": [],
       "createdAt": "2026-10-15T14:57:47.116Z",
       "reads": {
-        "zaphkiel": "2026-10-15T14:57:50.489Z"
+        "zaphkiel": "2026-10-15T14:57:50.489Z",
+        "regnar": "2026-10-15T14:57:59.489Z"
       }
     }
   },
@@ -231,5 +232,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "a9bb4dda0a2f8284fc782f2cca89352faf6ef2b2"
+  "sha": "792dd2b046d500e6424e6bdbdcbba82334483d3a"
 }
