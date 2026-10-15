@@ -163,11 +163,26 @@
       "reads": {
         "regnar": "2026-10-15T14:55:40.671Z"
       }
+    },
+    "group__9kf04xzz": {
+      "type": "group",
+      "name": "فایل های لو رفته جزیره کیش",
+      "avatarPath": null,
+      "members": {
+        "regnar": "owner",
+        "amirali": "member"
+      },
+      "admins": [
+        "regnar"
+      ],
+      "messages": [],
+      "createdAt": "2026-10-15T14:55:38.686Z",
+      "createdBy": "regnar"
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "bce63340f9e703fd51fc49b4771fe07e6a343947"
+  "sha": "1a03b9a4f8250e66e69d27a1d3e943c500bfbd25"
 }
