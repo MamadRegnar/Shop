@@ -175,7 +175,14 @@
       "admins": [
         "regnar"
       ],
-      "messages": [],
+      "messages": [
+        {
+          "id": 1792076160312,
+          "from": "regnar",
+          "text": "سلام",
+          "time": "2026-10-15T14:55:59.393Z"
+        }
+      ],
       "createdAt": "2026-10-15T14:55:38.686Z",
       "createdBy": "regnar",
       "reads": {
@@ -187,5 +194,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "07b7c6374cb88ee08284cb634b87bb7fd9ed006f"
+  "sha": "e83dda939d11aa92a09db475a847ec084074b1cc"
 }
