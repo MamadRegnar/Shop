@@ -14,16 +14,6 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T13:22:21.542Z"
-    },
-    "iiiiiiiii": {
-      "displayName": "Iiii",
-      "passwordHash": "1bdb739e34d8ae996e51bf210f3b7c86edca46d761ef976ffff5ab7f1e3091a6",
-      "avatarPath": null,
-      "premium": false,
-      "bio": "",
-      "folders": [],
-      "pinned": [],
-      "createdAt": "2026-10-15T13:23:16.694Z"
     }
   },
   "chats": {
@@ -102,28 +92,6 @@
       "messages": [],
       "createdAt": "2026-10-15T13:17:16.726Z"
     },
-    "dm__iiiiiiiii__mamad": {
-      "type": "dm",
-      "participants": [
-        "iiiiiiiii",
-        "mamad"
-      ],
-      "messages": [
-        {
-          "id": 1792070740512,
-          "from": "iiiiiiiii",
-          "text": "ممدو",
-          "time": "2026-10-15T13:25:40.236Z"
-        },
-        {
-          "id": 1792070937440,
-          "from": "iiiiiiiii",
-          "text": "🍋🥑🥖",
-          "time": "2026-10-15T13:28:57.107Z"
-        }
-      ],
-      "createdAt": "2026-10-15T13:25:35.318Z"
-    },
     "channel__txm7a1kk": {
       "type": "channel",
       "name": "سمپ رگنار",
@@ -151,5 +119,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "ed46b3f70fa01a58ef2f6d3b8b4f496de9ef04e7"
+  "sha": "a2c55ff816466c398348c8729605324cb233dd93"
 }
