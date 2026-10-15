@@ -237,7 +237,8 @@
         "dolpary"
       ],
       "subscribers": [
-        "dolpary"
+        "dolpary",
+        "regnar"
       ],
       "messages": [],
       "createdAt": "2026-10-15T13:52:31.341Z",
@@ -248,5 +249,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "47b853283e0003fc75f49d41abbeff91c0b3433d"
+  "sha": "6e131ab70cbff5ea4fe0ebe09b92213e2a6c0fc1"
 }
