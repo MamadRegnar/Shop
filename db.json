@@ -52,7 +52,8 @@
       "folders": [],
       "pinned": [],
       "createdAt": "2026-10-15T13:44:45.678Z",
-      "lastSeen": "2026-10-15T13:46:45.916Z"
+      "lastSeen": "2026-10-15T13:46:45.916Z",
+      "chatBg": "assets/bg/dolpary.jpg"
     }
   },
   "chats": {
@@ -209,5 +210,5 @@
   },
   "config": {},
   "broadcast": null,
-  "sha": "99cac2211324ec970955ba26053397cbd417b596"
+  "sha": "0bf669921bf3484f12184d185d73de7b19638ab3"
 }
