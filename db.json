@@ -4,16 +4,6 @@
       "displayName": "Devik",
       "passwordHash": "f6e2480c7250fde3d0e185bc703190bc48c64e282a9a3a0fcc6dfa4b3f033fce",
       "createdAt": "2026-10-15T12:49:25.916Z"
-    },
-    "mamad": {
-      "displayName": "ممد",
-      "passwordHash": "81bc8cc9f29e0acb891f66f86e49a2ef5bfcc8f091ba04c52f673dd874975798",
-      "avatarPath": null,
-      "premium": false,
-      "bio": "",
-      "folders": [],
-      "pinned": [],
-      "createdAt": "2026-10-15T13:22:21.542Z"
     }
   },
   "chats": {
@@ -119,5 +109,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "a2c55ff816466c398348c8729605324cb233dd93"
+  "sha": "fe1623612f7580bf1c17f992a9bd57e4b867b364"
 }
