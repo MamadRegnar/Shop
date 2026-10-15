@@ -209,7 +209,7 @@
       "createdAt": "2026-10-15T14:55:38.686Z",
       "createdBy": "regnar",
       "reads": {
-        "regnar": "2026-10-15T14:56:28.533Z"
+        "regnar": "2026-10-15T14:57:35.733Z"
       }
     }
   },
@@ -217,5 +217,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "91cc4cee34c79b3c1f87e52f4c7a114e97c85c38"
+  "sha": "3c688f43993978287b2fbaf50a8571e5555ee3d7"
 }
