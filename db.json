@@ -21,6 +21,17 @@
       "pinned": [],
       "createdAt": "2026-10-15T14:47:53.255Z",
       "lastSeen": "2026-10-15T14:47:53.260Z"
+    },
+    "amo_porang": {
+      "displayName": "عمو پورنگ",
+      "passwordHash": "48cff5ffb427809f9ad5cddc1b56ad5c325393537854b29c1f9d08e5f7a97b0d",
+      "avatarPath": null,
+      "premium": false,
+      "bio": "",
+      "folders": [],
+      "pinned": [],
+      "createdAt": "2026-10-15T14:56:54.308Z",
+      "lastSeen": "2026-10-15T14:56:54.308Z"
     }
   },
   "chats": {
@@ -194,5 +205,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "d7f633028b74fa13ef67415b156483fd1ad9220a"
+  "sha": "fe7e47c1a989c2c3355d4144ddad4e0d51a1c82e"
 }
