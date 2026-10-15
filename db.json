@@ -390,7 +390,7 @@
       "createdBy": "baloch",
       "reads": {
         "zaphkiel": "2026-10-15T15:02:53.525Z",
-        "amo_porang": "2026-10-15T15:04:29.139Z",
+        "amo_porang": "2026-10-15T15:04:37.520Z",
         "baloch": "2026-10-15T15:04:33.490Z"
       }
     },
@@ -415,5 +415,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "b389f21f0c105b354c90d7fbbe58b2f8195f9433"
+  "sha": "9c445c60d0b3bdbc88a256994134e6785915439d"
 }
