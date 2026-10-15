@@ -61,17 +61,6 @@
       "createdAt": "2026-10-15T13:44:45.678Z",
       "lastSeen": "2026-10-15T13:53:00.425Z",
       "chatBg": "assets/bg/dolpary.jpg"
-    },
-    "regnar": {
-      "displayName": "رگنار",
-      "passwordHash": "faf9d4b963f5cd361112fbaffb97de5509b0798f700f875a2a0b90c09e69d51b",
-      "avatarPath": null,
-      "premium": false,
-      "bio": "",
-      "folders": [],
-      "pinned": [],
-      "createdAt": "2026-10-15T13:53:23.868Z",
-      "lastSeen": "2026-10-15T13:53:23.868Z"
     }
   },
   "chats": {
@@ -252,5 +241,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "883188b44af338bfd10be50b5615be05c722e8a0"
+  "sha": "a5b4019e259dcf57dfccf83b74216711b477992f"
 }
