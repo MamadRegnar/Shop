@@ -325,7 +325,7 @@
       "reads": {
         "baloch": "2026-10-15T15:03:22.918Z",
         "zaphkiel": "2026-10-15T15:02:43.017Z",
-        "amo_porang": "2026-10-15T15:03:50.658Z"
+        "amo_porang": "2026-10-15T15:03:52.637Z"
       }
     },
     "group__i7yr88a4": {
@@ -397,5 +397,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "e3ac3d34a44d70da4533795d0c279887040af3ac"
+  "sha": "740694911e4fa99a8a1a56104304657943dcf953"
 }
