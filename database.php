@@ -2,10 +2,10 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
-$host = 'localhost';
-$dbname = 'regnar_chat';
+$host = 'regnardb-yvs-service';
+$dbname = 'regnardbpmo_db';
 $dbuser = 'root';
-$dbpass = '';
+$dbpass = 'dWqbnmG6H9tLcAacJM5u';
 
 try {
     $pdo = new PDO(
