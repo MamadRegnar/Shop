@@ -229,10 +229,13 @@
         "dolpary"
       ],
       "messages": [],
-      "createdAt": "2026-10-15T13:52:31.341Z"
+      "createdAt": "2026-10-15T13:52:31.341Z",
+      "reads": {
+        "dolpary": "2026-10-15T13:52:34.236Z"
+      }
     }
   },
   "config": {},
   "broadcast": null,
-  "sha": "9c8afe73c85cf8724feec58b712b5db7438b932d"
+  "sha": "f2de9c33e64f7e7a98bf3e89885e74c715800168"
 }
