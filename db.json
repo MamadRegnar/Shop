@@ -133,6 +133,12 @@
           "from": "regnar",
           "text": "خوش اومدی 👋",
           "time": "2026-10-15T14:52:45.805Z"
+        },
+        {
+          "id": 1792075976787,
+          "from": "regnar",
+          "text": "⚡",
+          "time": "2026-10-15T14:52:56.411Z"
         }
       ],
       "createdAt": "2026-10-15T14:51:18.341Z",
@@ -145,5 +151,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "596f7bac0cfb4bf00fead7274c5288a405d0497c"
+  "sha": "1eddeee58da4efcd1660779ff852d30a74f5717f"
 }
