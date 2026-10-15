@@ -225,6 +225,13 @@
           "from": "amo_porang",
           "text": "جونننن",
           "time": "2026-10-15T15:01:54.957Z"
+        },
+        {
+          "id": 1792076583659,
+          "from": "amo_porang",
+          "text": "",
+          "image": "chat-images/group__9kf04xzz/1792076578683_ax115ys8.jpg",
+          "time": "2026-10-15T15:03:03.180Z"
         }
       ],
       "createdAt": "2026-10-15T14:55:38.686Z",
@@ -364,5 +371,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "1f0cb89a8c28e12e8bd5af06dbcad1199bd0f52a"
+  "sha": "d6dcc5d2e9162b8ac36e5fe4bdf304635c1a8539"
 }
