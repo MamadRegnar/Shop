@@ -5,14 +5,6 @@
       "passwordHash": "f6e2480c7250fde3d0e185bc703190bc48c64e282a9a3a0fcc6dfa4b3f033fce",
       "createdAt": "2026-10-15T12:49:25.916Z"
     },
-    "devil": {
-      "displayName": "Dev",
-      "passwordHash": "08a205c439e38b4695e930efac97844a3cc655e2d009a2752c93c8cb0a5bd937",
-      "createdAt": "2026-10-15T12:50:04.493Z",
-      "avatarPath": "avatars/devil.jpg",
-      "avatarUpdatedAt": "2026-10-15T13:00:31.464Z",
-      "bio": ""
-    },
     "mamad": {
       "displayName": "ممد",
       "passwordHash": "81bc8cc9f29e0acb891f66f86e49a2ef5bfcc8f091ba04c52f673dd874975798",
@@ -151,59 +143,6 @@
       ],
       "createdAt": "2026-10-15T13:25:35.318Z"
     },
-    "dm__devil__iiiiiiiii": {
-      "type": "dm",
-      "participants": [
-        "iiiiiiiii",
-        "devil"
-      ],
-      "messages": [],
-      "createdAt": "2026-10-15T13:29:30.534Z"
-    },
-    "dm__devil__dolpary": {
-      "type": "dm",
-      "participants": [
-        "dolpary",
-        "devil"
-      ],
-      "messages": [
-        {
-          "id": 1792071938268,
-          "from": "dolpary",
-          "text": "😂",
-          "time": "2026-10-15T13:45:37.633Z"
-        },
-        {
-          "id": 1792071943240,
-          "from": "dolpary",
-          "text": "😂😂😂😂😂😂",
-          "time": "2026-10-15T13:45:42.409Z"
-        },
-        {
-          "id": 1792071967049,
-          "from": "dolpary",
-          "text": "",
-          "image": "chat-images/dm__devil__dolpary/1792071963735_aqfmcqp4.jpg",
-          "time": "2026-10-15T13:46:06.670Z"
-        },
-        {
-          "id": 1792071994207,
-          "from": "dolpary",
-          "text": "💦",
-          "time": "2026-10-15T13:46:34.088Z"
-        },
-        {
-          "id": 1792071998798,
-          "from": "dolpary",
-          "text": "🔱🔱",
-          "time": "2026-10-15T13:46:38.243Z"
-        }
-      ],
-      "createdAt": "2026-10-15T13:45:07.520Z",
-      "reads": {
-        "dolpary": "2026-10-15T13:50:18.836Z"
-      }
-    },
     "channel__txm7a1kk": {
       "type": "channel",
       "name": "سمپ رگنار",
@@ -231,5 +170,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "197fe49a1aca58d4a607a64d1ef8fe81a1e22a0a"
+  "sha": "9ed6b1a50cebcb3cf96f07b3e385d17396e53e8e"
 }
