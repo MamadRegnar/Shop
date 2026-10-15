@@ -107,7 +107,7 @@
       "createdAt": "2026-10-15T13:52:31.341Z",
       "reads": {
         "dolpary": "2026-10-15T13:52:34.236Z",
-        "regnar": "2026-10-15T14:23:16.521Z"
+        "regnar": "2026-10-15T14:23:43.813Z"
       }
     }
   },
@@ -115,5 +115,5 @@
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "7fcb3b06f4264f2552929b6b39ed83209767e618"
+  "sha": "c3068f43bb014a4f9d4f69ffb9b4f97f79a692c0"
 }
