@@ -220,12 +220,15 @@
         "regnar"
       ],
       "messages": [],
-      "createdAt": "2026-10-15T14:57:47.116Z"
+      "createdAt": "2026-10-15T14:57:47.116Z",
+      "reads": {
+        "zaphkiel": "2026-10-15T14:57:50.489Z"
+      }
     }
   },
   "config": {
     "adminPasswordHash": "fa104e53b9b66f14aa1efddc0b898876573129a0764eba24f023611f512a11ba"
   },
   "broadcast": null,
-  "sha": "927a747e316026147a2e3e5d768213ec5b7d0134"
+  "sha": "ed31e09289b3d4ff4ddfd60984ba137e84f34a70"
 }
