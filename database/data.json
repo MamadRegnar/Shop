@@ -20,7 +20,7 @@
       "display_name": "Mamad",
       "email": "you@exmaplez.comz",
       "password_hash": "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
-      "coins": 20,
+      "coins": 10,
       "role": "user",
       "avatar": null,
       "cover": null,
@@ -42,6 +42,16 @@
   "bookmarks": [],
   "reposts": [],
   "notifications": [
+    {
+      "id": 13,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "gift",
+      "is_read": 0,
+      "created_at": "2026-10-17T08:22:29.326Z",
+      "gift_id": "diamond",
+      "gift_name": "💎 الماس"
+    },
     {
       "id": 12,
       "user_id": 1,
@@ -174,15 +184,29 @@
   "stories": [],
   "story_likes": [],
   "story_views": [],
-  "gifts_sent": [],
+  "gifts_sent": [
+    {
+      "id": 1,
+      "sender_id": 2,
+      "receiver_id": 1,
+      "gift_id": "diamond",
+      "gift_name": "💎 الماس",
+      "gift_type": "lottie",
+      "gift_file": "diamond.json",
+      "gift_price": 10,
+      "gift_url": "gifts/diamond.json",
+      "message": "",
+      "created_at": "2026-10-17T08:22:29.321Z"
+    }
+  ],
   "sessions": {},
   "counters": {
     "user": 3,
     "post": 1,
     "message": 4,
     "story": 1,
-    "gift": 1,
-    "notification": 13
+    "gift": 2,
+    "notification": 14
   },
   "settings": {},
   "events": []
