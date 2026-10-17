@@ -33,11 +33,25 @@
     }
   ],
   "posts": [],
-  "follows": [],
+  "follows": [
+    {
+      "user_id": 2,
+      "following_id": 1,
+      "created_at": "2026-10-17T12:52:27.864Z"
+    }
+  ],
   "likes": [],
   "bookmarks": [],
   "reposts": [],
   "notifications": [
+    {
+      "id": 17,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "follow",
+      "is_read": 0,
+      "created_at": "2026-10-17T12:52:27.881Z"
+    },
     {
       "id": 16,
       "user_id": 1,
@@ -261,7 +275,7 @@
     "message": 5,
     "story": 2,
     "gift": 3,
-    "notification": 17
+    "notification": 18
   },
   "settings": {},
   "events": []
