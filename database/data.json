@@ -43,6 +43,15 @@
   "reposts": [],
   "notifications": [
     {
+      "id": 15,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "message",
+      "is_read": 0,
+      "created_at": "2026-10-17T08:43:05.566Z",
+      "message_id": 4
+    },
+    {
       "id": 14,
       "user_id": 1,
       "actor_id": 2,
@@ -189,6 +198,15 @@
       "is_read": 0,
       "seen_at": null,
       "created_at": "2026-10-17T08:15:18.433Z"
+    },
+    {
+      "id": 4,
+      "sender_id": 2,
+      "receiver_id": 1,
+      "content": "🤣🤣🤣🤣🤣🤣",
+      "is_read": 0,
+      "seen_at": null,
+      "created_at": "2026-10-17T08:43:05.565Z"
     }
   ],
   "stories": [],
@@ -226,10 +244,10 @@
   "counters": {
     "user": 3,
     "post": 1,
-    "message": 4,
+    "message": 5,
     "story": 1,
     "gift": 3,
-    "notification": 15
+    "notification": 16
   },
   "settings": {},
   "events": []
