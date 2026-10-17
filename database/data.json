@@ -30,6 +30,22 @@
       "created_at": "2026-10-17T07:36:54.972Z",
       "website": "",
       "header": "https://raw.githubusercontent.com/MamadRegnar/Shop/main/uploads/covers/1792233126392_1000070855.jpg"
+    },
+    {
+      "id": 3,
+      "username": "yougay",
+      "display_name": "رگنار",
+      "email": "mamadpahlavi73@gmail.coz",
+      "password_hash": "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+      "coins": 20,
+      "role": "user",
+      "avatar": null,
+      "header": null,
+      "bio": "",
+      "website": "",
+      "is_verified": 0,
+      "is_private": 0,
+      "created_at": "2026-10-17T13:41:56.391Z"
     }
   ],
   "posts": [
@@ -283,7 +299,7 @@
   ],
   "sessions": {},
   "counters": {
-    "user": 3,
+    "user": 4,
     "post": 2,
     "message": 5,
     "story": 2,
