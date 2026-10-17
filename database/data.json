@@ -37,6 +37,14 @@
   "reposts": [],
   "notifications": [
     {
+      "id": 5,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "follow",
+      "is_read": 0,
+      "created_at": "2026-10-17T08:01:15.806Z"
+    },
+    {
       "id": 4,
       "user_id": 1,
       "actor_id": 2,
@@ -81,7 +89,7 @@
     "message": 1,
     "story": 1,
     "gift": 1,
-    "notification": 5
+    "notification": 6
   },
   "settings": {},
   "events": []
