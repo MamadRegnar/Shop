@@ -43,6 +43,15 @@
   "reposts": [],
   "notifications": [
     {
+      "id": 12,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "message",
+      "is_read": 0,
+      "created_at": "2026-10-17T08:15:18.433Z",
+      "message_id": 3
+    },
+    {
       "id": 11,
       "user_id": 1,
       "actor_id": 2,
@@ -151,6 +160,15 @@
       "is_read": 0,
       "seen_at": null,
       "created_at": "2026-10-17T08:14:50.935Z"
+    },
+    {
+      "id": 3,
+      "sender_id": 2,
+      "receiver_id": 1,
+      "content": "سلام",
+      "is_read": 0,
+      "seen_at": null,
+      "created_at": "2026-10-17T08:15:18.433Z"
     }
   ],
   "stories": [],
@@ -161,10 +179,10 @@
   "counters": {
     "user": 3,
     "post": 1,
-    "message": 3,
+    "message": 4,
     "story": 1,
     "gift": 1,
-    "notification": 12
+    "notification": 13
   },
   "settings": {},
   "events": []
