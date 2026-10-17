@@ -218,7 +218,17 @@
       "created_at": "2026-10-17T08:43:05.565Z"
     }
   ],
-  "stories": [],
+  "stories": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "media_url": "https://raw.githubusercontent.com/MamadRegnar/Shop/main/uploads/stories/1792233080590_1000079494.jpg",
+      "media_type": "image",
+      "caption": "",
+      "created_at": "2026-10-17T10:31:23.132Z",
+      "expires_at": "2026-10-18T10:31:23.144Z"
+    }
+  ],
   "story_likes": [],
   "story_views": [],
   "gifts_sent": [
@@ -254,7 +264,7 @@
     "user": 3,
     "post": 1,
     "message": 5,
-    "story": 1,
+    "story": 2,
     "gift": 3,
     "notification": 17
   },
