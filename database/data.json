@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "regnar",
+      "display_name": "رگنار",
+      "email": "mamadpahlavi73@gmail.com",
+      "password_hash": "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+      "role": "user",
+      "avatar": null,
+      "cover": null,
+      "bio": "",
+      "is_verified": 0,
+      "is_private": 0,
+      "created_at": "2026-10-17T07:23:14.871Z"
+    }
+  ],
+  "posts": [],
+  "follows": [],
+  "likes": [],
+  "bookmarks": [],
+  "reposts": [],
+  "notifications": [],
+  "messages": [],
+  "stories": [],
+  "story_likes": [],
+  "story_views": [],
+  "gifts_sent": [],
+  "sessions": {},
+  "counters": {
+    "user": 2,
+    "post": 1,
+    "message": 1,
+    "story": 1,
+    "gift": 1,
+    "notification": 1
+  },
+  "settings": {},
+  "events": []
+}
