@@ -43,6 +43,15 @@
   "reposts": [],
   "notifications": [
     {
+      "id": 10,
+      "user_id": 1,
+      "actor_id": 2,
+      "type": "message",
+      "is_read": 0,
+      "created_at": "2026-10-17T08:09:27.164Z",
+      "message_id": 1
+    },
+    {
       "id": 9,
       "user_id": 1,
       "actor_id": 2,
@@ -115,7 +124,17 @@
       "created_at": "2026-10-17T08:01:07.144Z"
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "id": 1,
+      "sender_id": 2,
+      "receiver_id": 1,
+      "content": "کیف",
+      "is_read": 0,
+      "seen_at": null,
+      "created_at": "2026-10-17T08:09:27.164Z"
+    }
+  ],
   "stories": [],
   "story_likes": [],
   "story_views": [],
@@ -124,10 +143,10 @@
   "counters": {
     "user": 3,
     "post": 1,
-    "message": 1,
+    "message": 2,
     "story": 1,
     "gift": 1,
-    "notification": 10
+    "notification": 11
   },
   "settings": {},
   "events": []
