@@ -32,7 +32,20 @@
       "header": "https://raw.githubusercontent.com/MamadRegnar/Shop/main/uploads/covers/1792233126392_1000070855.jpg"
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "content": "برای توست 🌹",
+      "media": [],
+      "parent_id": null,
+      "created_at": "2026-10-17T13:39:01.309Z",
+      "likes_count": 0,
+      "replies_count": 0,
+      "reposts_count": 0,
+      "is_pinned": 0
+    }
+  ],
   "follows": [],
   "likes": [],
   "bookmarks": [],
@@ -265,7 +278,7 @@
   "sessions": {},
   "counters": {
     "user": 3,
-    "post": 1,
+    "post": 2,
     "message": 5,
     "story": 2,
     "gift": 3,
