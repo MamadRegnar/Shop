@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت PINKY-HUB</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root { --bg:#0a0509; --bg-2:#120811; --pink:#ff2d78; --pink-2:#ff5c9a; --border:rgba(255,45,120,.2); --text:#fff; --dim:#b88aa0; --err:#ff1744; --ok:#00e676; --gold:#ffd700; }
+*{box-sizing:border-box; margin:0; padding:0; font-family:'Vazirmatn',sans-serif;}
+body{background:var(--bg); color:var(--text); min-height:100vh;}
+.container{max-width:1000px; margin:0 auto; padding:20px;}
+.header{display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:24px;}
+.logo{font-family:'Orbitron',sans-serif; font-size:1.5rem; color:var(--pink); font-weight:900; letter-spacing:2px;}
+.tabs{display:flex; gap:8px; margin-bottom:24px;}
+.tab{padding:10px 20px; border-radius:8px; background:var(--bg-2); border:1px solid var(--border); cursor:pointer; font-weight:700; color:var(--dim);}
+.tab.active{background:var(--pink); color:#fff; border-color:var(--pink);}
+.card{background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;}
+.card img, .card video{width:48px; height:48px; object-fit:contain; border-radius:8px; margin-left:12px; background:#000;}
+.btn{padding:8px 16px; border-radius:8px; border:none; cursor:pointer; font-weight:700; font-family:'Vazirmatn'; transition:.2s;}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--pink-2)); color:#fff;}
+.btn-danger{background:var(--err); color:#fff;}
+.btn-sm{padding:4px 8px; font-size:.8rem;}
+.btn:disabled{opacity:.5; cursor:not-allowed;}
+.input-group{display:flex; gap:10px; margin-bottom:12px;}
+.input, select{flex:1; padding:10px; border-radius:8px; border:1px solid var(--border); background:#000; color:#fff; font-family:'Vazirmatn';}
+.hide{display:none;}
+#login-box{max-width:300px; margin:100px auto; text-align:center; background:var(--bg-2); padding:30px; border-radius:16px; border:1px solid var(--border);}
+.form-box { background:var(--bg-2); padding:20px; border-radius:12px; border:1px solid var(--border); margin-bottom:20px; }
+.form-box h3 { margin-bottom:16px; font-size:1.1rem; }
+.radio-row { display:flex; gap:16px; align-items:center; margin-bottom:12px; font-size:.9rem; }
+.radio-row label { display:flex; align-items:center; gap:6px; cursor:pointer; }
+.file-info { font-size:.8rem; color:var(--dim); margin-top:6px; }
+.progress-wrap { margin-top:8px; height:6px; background:#222; border-radius:4px; overflow:hidden; display:none; }
+.progress-wrap.active { display:block; }
+.progress-bar { height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--pink-2)); transition:width .3s; }
+</style>
+</head>
+<body>
+
+<div id="login-box">
+  <h2 style="margin-bottom:20px;">ورود ادمین</h2>
+  <input type="password" id="admin-pass" class="input" placeholder="رمز عبور" style="margin-bottom:16px; text-align:center; font-size:1.2rem;">
+  <button class="btn btn-primary" style="width:100%;" onclick="login()">ورود</button>
+</div>
+
+<div class="container hide" id="panel">
+  <div class="header">
+    <div class="logo">PINKY ADMIN</div>
+    <button class="btn btn-danger" onclick="logout()">خروج</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('users', this)">کاربران</div>
+    <div class="tab" onclick="switchTab('posts', this)">مدیریت پست‌ها</div>
+    <div class="tab" onclick="switchTab('gifts', this)">مدیریت گیفت‌ها</div>
+  </div>
+
+  <!-- Users -->
+  <div id="tab-users"><div id="users-list"></div></div>
+
+  <!-- Posts -->
+  <div id="tab-posts" class="hide">
+    <div class="form-box">
+      <h3>ساخت پست جدید</h3>
+      <div class="input-group">
+        <select id="p-user" class="input"></select>
+        <select id="p-type" class="input">
+          <option value="video">ویدیو</option>
+          <option value="reel">ریلز</option>
+          <option value="image">عکس</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <input type="text" id="p-title" class="input" placeholder="عنوان پست">
+      </div>
+
+      <div class="radio-row">
+        <label><input type="radio" name="p_source" value="url" checked onchange="togglePostSource()"> لینک (URL)</label>
+        <label><input type="radio" name="p_source" value="file" onchange="togglePostSource()"> آپلود فایل</label>
+      </div>
+
+      <div class="input-group" id="p-url-box">
+        <input type="text" id="p-url" class="input" placeholder="لینک مستقیم (https://...)">
+      </div>
+      <div class="input-group hide" id="p-file-box" style="flex-direction:column; align-items:stretch;">
+        <input type="file" id="p-file" accept="image/*,video/*" class="input" style="padding:8px;">
+        <div id="p-file-info" class="file-info"></div>
+        <div class="progress-wrap" id="p-progress"><div class="progress-bar" id="p-progress-bar"></div></div>
+      </div>
+
+      <button class="btn btn-primary" onclick="addPostAdmin()" id="p-submit">ثبت پست</button>
+    </div>
+    <div id="posts-list"></div>
+  </div>
+
+  <!-- Gifts -->
+  <div id="tab-gifts" class="hide">
+    <div class="form-box">
+      <h3>ساخت گیفت جدید</h3>
+      <div class="input-group">
+        <input type="text" id="g-name" class="input" placeholder="نام گیفت">
+        <input type="number" id="g-price" class="input" placeholder="قیمت (سکه)">
+        <select id="g-type" class="input">
+          <option value="image">عکس (JPG/PNG/GIF)</option>
+          <option value="video">ویدیو (MP4/WebM)</option>
+        </select>
+      </div>
+
+      <div class="radio-row">
+        <label><input type="radio" name="g_source" value="url" checked onchange="toggleGiftSource()"> لینک (URL)</label>
+        <label><input type="radio" name="g_source" value="file" onchange="toggleGiftSource()"> آپلود فایل</label>
+      </div>
+
+      <div class="input-group" id="g-url-box">
+        <input type="text" id="g-url" class="input" placeholder="لینک مستقیم (https://...)">
+      </div>
+      <div class="input-group hide" id="g-file-box" style="flex-direction:column; align-items:stretch;">
+        <input type="file" id="g-file" accept="image/*,video/*" class="input" style="padding:8px;">
+        <div id="g-file-info" class="file-info"></div>
+        <div class="progress-wrap" id="g-progress"><div class="progress-bar" id="g-progress-bar"></div></div>
+      </div>
+
+      <button class="btn btn-primary" onclick="addGift()" id="g-submit">ثبت گیفت</button>
+    </div>
+    <div id="gifts-list"></div>
+  </div>
+</div>
+
+<script>
+const HARD_CONFIG = {
+  owner:  'MamadRegnar',
+  repo:   'RED-HUB',
+  token:  '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',
+  branch: 'main'
+};
+
+const RELEASE_TAG = 'media';
+const IMAGE_EXTS = ['jpg','jpeg','png','gif','webp','svg','bmp','ico'];
+
+let CONFIG = {}, DB = null, DB_SHA = null, RELEASE_ID = null;
+const API = 'https://api.github.com';
+const $ = s => document.querySelector(s);
+
+function login(){ if($('#admin-pass').value === '121212'){ $('#login-box').classList.add('hide'); $('#panel').classList.remove('hide'); boot(); } else { alert('رمز اشتباه است'); } }
+function logout(){ location.reload(); }
+
+function togglePostSource() {
+  const isUrl = document.querySelector('input[name="p_source"]:checked').value === 'url';
+  $('#p-url-box').classList.toggle('hide', !isUrl);
+  $('#p-file-box').classList.toggle('hide', isUrl);
+}
+function toggleGiftSource() {
+  const isUrl = document.querySelector('input[name="g_source"]:checked').value === 'url';
+  $('#g-url-box').classList.toggle('hide', !isUrl);
+  $('#g-file-box').classList.toggle('hide', isUrl);
+}
+
+function ghH(){ return { 'Authorization': `token ${CONFIG.token}`, 'Accept': 'application/vnd.github+json' }; }
+async function ghGet(p){ const r=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${p}?ref=${CONFIG.branch}&t=${Date.now()}`,{headers:ghH()}); if(r.status===404)return null; return r.json(); }
+async function ghPut(p, c, m, sha=null) {
+  if (c.length < 1024 * 1024 * 1.4) {
+    const body={message:m,content:c,branch:CONFIG.branch}; if(sha)body.sha=sha;
+    const r=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${p}`,{method:'PUT',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!r.ok)throw new Error('PUT Err'); return r.json();
+  }
+  const refR=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/ref/heads/${CONFIG.branch}`,{headers:ghH()}); const refD=await refR.json();
+  const comR=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/commits/${refD.object.sha}`,{headers:ghH()}); const comD=await comR.json();
+  const blobR=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/blobs`,{method:'POST',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({content:c,encoding:'base64'})}); const blobD=await blobR.json();
+  const treeR=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/trees`,{method:'POST',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({base_tree:comD.tree.sha,tree:[{path:p,mode:'100644',type:'blob',sha:blobD.sha}]})}); const treeD=await treeR.json();
+  const ncR=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/commits`,{method:'POST',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({message:m,tree:treeD.sha,parents:[refD.object.sha]})}); const ncD=await ncR.json();
+  await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/git/refs/heads/${CONFIG.branch}`,{method:'PATCH',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({sha:ncD.sha})});
+  return { content: { sha: blobD.sha } };
+}
+async function ghDelete(p, sha, m){ await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${p}`,{method:'DELETE',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({message:m,sha,branch:CONFIG.branch})}); }
+
+// ============================================================
+// RELEASE ASSETS — آپلود فایل با هر حجمی (تا 2GB) بدون base64
+// ============================================================
+async function ensureRelease() {
+  if (RELEASE_ID) return RELEASE_ID;
+  const r = await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/releases/tags/${RELEASE_TAG}`, {headers: ghH()});
+  if (r.ok) {
+    const d = await r.json();
+    RELEASE_ID = d.id;
+    return RELEASE_ID;
+  }
+  if (r.status !== 404) throw new Error('خطا در دسترسی به release');
+  const cr = await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/releases`, {
+    method: 'POST',
+    headers: {...ghH(), 'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      tag_name: RELEASE_TAG,
+      name: 'Media Assets',
+      body: 'Uploaded media files for PINKY-HUB',
+      draft: false,
+      prerelease: false
+    })
+  });
+  if (!cr.ok) throw new Error('خطا در ساخت release: ' + (await cr.text()));
+  const cd = await cr.json();
+  RELEASE_ID = cd.id;
+  return RELEASE_ID;
+}
+
+async function uploadToRelease(file, onProgress) {
+  const rid = await ensureRelease();
+  const safeName = file.name.replace(/[^\w.\-]/g, '_');
+  const assetName = `${Date.now()}-${safeName}`;
+  const uploadUrl = `https://uploads.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/releases/${rid}/assets?name=${encodeURIComponent(assetName)}`;
+
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', uploadUrl);
+    xhr.setRequestHeader('Authorization', `token ${CONFIG.token}`);
+    xhr.setRequestHeader('Accept', 'application/vnd.github+json');
+    xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
+
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable && onProgress) {
+        onProgress(Math.round((e.loaded / e.total) * 100));
+      }
+    };
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          const d = JSON.parse(xhr.responseText);
+          resolve(d.browser_download_url);
+        } catch(e) { reject(new Error('پاسخ نامعتبر از سرور')); }
+      } else {
+        reject(new Error(`آپلود ناموفق (${xhr.status}): ${xhr.responseText.slice(0, 200)}`));
+      }
+    };
+    xhr.onerror = () => reject(new Error('خطای شبکه در آپلود'));
+    xhr.send(file);
+  });
+}
+
+// ============================================================
+// DB helpers
+// ============================================================
+function b64DecodeUnicode(str){ const bin=atob(str.replace(/\s/g,'')); const b=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) b[i]=bin.charCodeAt(i); return new TextDecoder().decode(b); }
+function b64EncodeUnicode(str){ const b=new TextEncoder().encode(str); let bin=''; for(let i=0;i<b.length;i++) bin+=String.fromCharCode(b[i]); return btoa(bin); }
+function uuid(){ return 'xxxx-4xxx-yxxx'.replace(/[xy]/g,c=>{ const r=Math.random()*16|0; return(c==='x'?r:(r&0x3|0x8)).toString(16); }); }
+
+function mediaURL(p){
+  if (!p) return '';
+  if (p.startsWith('http://') || p.startsWith('https://')) return p;
+  return `https://raw.githubusercontent.com/${CONFIG.owner}/${CONFIG.repo}/${CONFIG.branch}/${p}?t=${Date.now()}`;
+}
+
+function updateFileInfo(inputEl, infoEl, typeSelect) {
+  const f = inputEl.files[0];
+  if (!f) { infoEl.textContent = ''; return; }
+  const mb = f.size / (1024 * 1024);
+  const ext = (f.name.split('.').pop() || '').toLowerCase();
+  infoEl.textContent = `${f.name} — ${mb.toFixed(2)} MB 🚀 (با هر حجمی، بدون محدودیت)`;
+
+  if (typeSelect) {
+    if (IMAGE_EXTS.includes(ext)) typeSelect.value = 'image';
+    else if (typeSelect.value === 'image') typeSelect.value = 'video';
+  }
+}
+
+async function boot(){
+  CONFIG = {...HARD_CONFIG};
+  if(!CONFIG.branch){ const r=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}`,{headers:ghH()}); CONFIG.branch=(await r.json()).default_branch||'main'; }
+  await loadDB();
+  renderAll();
+  // آماده‌سازی release در پس‌زمینه (بی‌صدا)
+  ensureRelease().catch(()=>{});
+}
+
+async function loadDB(){
+  const d = await ghGet('db.json');
+  if(!d){ DB={users:{},posts:[],gifts:[]}; DB_SHA=null; await saveDB('init'); return; }
+  DB = JSON.parse(b64DecodeUnicode(d.content));
+  DB_SHA = d.sha;
+  if(!DB.gifts) DB.gifts = [];
+  if(!DB.posts) DB.posts = [];
+  if(!DB.users) DB.users = {};
+}
+async function saveDB(m='admin update'){ const c = b64EncodeUnicode(JSON.stringify(DB, null, 2)); const r = await ghPut('db.json', c, m, DB_SHA); DB_SHA = r.content.sha; }
+
+function switchTab(t, el){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  (el || event.target).classList.add('active');
+  ['users','posts','gifts'].forEach(x=>$('#tab-'+x).classList.add('hide'));
+  $('#tab-'+t).classList.remove('hide');
+}
+
+function renderAll(){ renderUsers(); renderPosts(); renderGifts(); }
+
+// ===== Users =====
+function renderUsers(){
+  $('#users-list').innerHTML = Object.values(DB.users).map(u=>`
+    <div class="card">
+      <div style="display:flex; align-items:center;">
+        ${u.avatarPath ? `<img src="${mediaURL(u.avatarPath)}">` : `<div style="width:48px;height:48px;border-radius:50%;background:#333;display:grid;place-items:center;margin-left:12px;">${u.username[0]}</div>`}
+        <div>
+          <strong style="font-size:1.1rem;">@${u.username}</strong>
+          <div style="color:var(--gold); font-size:.9rem;"><i class="fa-solid fa-coins"></i> ${u.coins} سکه</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-sm btn-primary" onclick="giveCoins('${u.username}')">+ سکه</button>
+        <button class="btn btn-sm btn-danger" onclick="delUser('${u.username}')"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+  `).join('');
+  $('#p-user').innerHTML = Object.values(DB.users).map(u=>`<option value="${u.username}">@${u.username}</option>`).join('');
+}
+window.giveCoins = async (u) => {
+  const amt = prompt('چند سکه اضافه شود؟', '50'); if(!amt || isNaN(amt))return;
+  await loadDB(); DB.users[u].coins += parseInt(amt); await saveDB(`give coins to ${u}`); renderUsers(); alert('انجام شد');
+};
+window.delUser = async (u) => {
+  if(!confirm(`حذف کاربر ${u}؟`))return;
+  await loadDB(); delete DB.users[u]; DB.posts = DB.posts.filter(p=>p.author!==u); await saveDB(`del user ${u}`); renderAll();
+};
+
+// ===== Posts =====
+function renderPosts(){
+  $('#posts-list').innerHTML = DB.posts.sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).map(p=>`
+    <div class="card">
+      <div style="display:flex; align-items:center;">
+        ${p.type === 'image'
+          ? `<img src="${mediaURL(p.mediaPath)}" onerror="this.style.display='none'">`
+          : `<video src="${mediaURL(p.mediaPath)}" muted preload="metadata"></video>`}
+        <div>
+          <strong>${p.title}</strong> <span style="color:var(--dim); font-size:.8rem;">(${p.type})</span><br>
+          <small style="color:var(--dim);">توسط @${p.author}</small>
+        </div>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="delPost('${p.id}', '${p.mediaPath}')"><i class="fa-solid fa-trash"></i> حذف</button>
+    </div>
+  `).join('');
+}
+
+window.addPostAdmin = async () => {
+  const author = $('#p-user').value;
+  const type = $('#p-type').value;
+  const title = $('#p-title').value.trim();
+  const source = document.querySelector('input[name="p_source"]:checked').value;
+
+  if(!author || !title) return alert('عنوان و کاربر را انتخاب کنید');
+
+  const btn = $('#p-submit');
+  const progWrap = $('#p-progress');
+  const progBar = $('#p-progress-bar');
+  let mediaPath = '';
+
+  try {
+    btn.disabled = true;
+
+    if (source === 'url') {
+      mediaPath = $('#p-url').value.trim();
+      if(!mediaPath.startsWith('http')) { btn.disabled=false; return alert('لینک باید با http یا https شروع شود'); }
+    } else {
+      const file = $('#p-file').files[0];
+      if(!file) { btn.disabled=false; return alert('فایلی انتخاب نشده است'); }
+
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> آپلود...';
+      progWrap.classList.add('active');
+      progBar.style.width = '0%';
+
+      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = pct + '%'; });
+
+      progBar.style.width = '100%';
+    }
+
+    await loadDB();
+    DB.posts.push({
+      id: uuid(),
+      type: type,
+      title: title,
+      caption: 'اضافه شده توسط ادمین',
+      author: author,
+      mediaPath: mediaPath,
+      likes: [],
+      createdAt: new Date().toISOString()
+    });
+    await saveDB('admin add post');
+
+    $('#p-title').value = '';
+    $('#p-url').value = '';
+    $('#p-file').value = '';
+    $('#p-file-info').textContent = '';
+    document.querySelector('input[name="p_source"][value="url"]').checked = true;
+    togglePostSource();
+
+    renderPosts();
+    alert('پست با موفقیت ساخته شد ✅');
+  } catch(e) {
+    alert('خطا: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'ثبت پست';
+    setTimeout(() => { progWrap.classList.remove('active'); progBar.style.width = '0%'; }, 800);
+  }
+};
+
+window.delPost = async (id, path) => {
+  if(!confirm('حذف شود؟'))return;
+  await loadDB(); DB.posts = DB.posts.filter(p=>p.id!==id); await saveDB('admin del post');
+  if(path && !path.startsWith('http')) {
+    const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'admin del file');
+  }
+  renderPosts();
+};
+
+// ===== Gifts =====
+function renderGifts(){
+  $('#gifts-list').innerHTML = DB.gifts.map(g=>`
+    <div class="card">
+      <div style="display:flex; align-items:center;">
+        ${g.type === 'video'
+          ? `<video src="${mediaURL(g.mediaPath)}" autoplay loop muted playsinline></video>`
+          : `<img src="${mediaURL(g.mediaPath)}">`}
+        <div>
+          <strong>${g.name}</strong>
+          <div style="color:var(--gold); font-size:.9rem;"><i class="fa-solid fa-coins"></i> ${g.price} سکه</div>
+        </div>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="delGift('${g.id}', '${g.mediaPath}')"><i class="fa-solid fa-trash"></i> حذف</button>
+    </div>
+  `).join('');
+}
+
+window.addGift = async () => {
+  const name = $('#g-name').value.trim();
+  const price = parseInt($('#g-price').value);
+  const type = $('#g-type').value;
+  const source = document.querySelector('input[name="g_source"]:checked').value;
+
+  if(!name || !price) return alert('نام و قیمت را وارد کنید');
+
+  const btn = $('#g-submit');
+  const progWrap = $('#g-progress');
+  const progBar = $('#g-progress-bar');
+  let mediaPath = '';
+
+  try {
+    btn.disabled = true;
+
+    if (source === 'url') {
+      mediaPath = $('#g-url').value.trim();
+      if(!mediaPath.startsWith('http')) { btn.disabled=false; return alert('لینک نامعتبر است'); }
+    } else {
+      const file = $('#g-file').files[0];
+      if(!file) { btn.disabled=false; return alert('فایلی انتخاب نشده است'); }
+
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> آپلود...';
+      progWrap.classList.add('active');
+      progBar.style.width = '0%';
+
+      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = pct + '%'; });
+
+      progBar.style.width = '100%';
+    }
+
+    await loadDB();
+    DB.gifts.push({ id: uuid(), name, price, mediaPath, type });
+    await saveDB('add gift');
+
+    $('#g-name').value = ''; $('#g-price').value = ''; $('#g-url').value = ''; $('#g-file').value = '';
+    $('#g-file-info').textContent = '';
+    document.querySelector('input[name="g_source"][value="url"]').checked = true;
+    toggleGiftSource();
+
+    renderGifts();
+    alert('گیفت ساخته شد ✅');
+  } catch(e) {
+    alert('خطا در ساخت گیفت: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'ثبت گیفت';
+    setTimeout(() => { progWrap.classList.remove('active'); progBar.style.width = '0%'; }, 800);
+  }
+};
+
+window.delGift = async (id, path) => {
+  if(!confirm('حذف شود؟'))return;
+  await loadDB(); DB.gifts = DB.gifts.filter(g=>g.id!==id); await saveDB('admin del gift');
+  if(path && !path.startsWith('http')) {
+    const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'admin del gift file');
+  }
+  renderGifts();
+};
+
+$('#p-file').addEventListener('change', () => updateFileInfo($('#p-file'), $('#p-file-info'), $('#p-type')));
+$('#g-file').addEventListener('change', () => updateFileInfo($('#g-file'), $('#g-file-info'), $('#g-type')));
+</script>
+</body>
+</html>
