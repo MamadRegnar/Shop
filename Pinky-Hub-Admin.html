@@ -35,6 +35,7 @@ body{background:var(--bg); color:var(--text); min-height:100vh;}
 .progress-wrap { margin-top:8px; height:6px; background:#222; border-radius:4px; overflow:hidden; display:none; }
 .progress-wrap.active { display:block; }
 .progress-bar { height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--pink-2)); transition:width .3s; }
+.thumb-preview { max-width: 100px; border-radius: 8px; margin-top: 8px; display: none; border: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -66,7 +67,7 @@ body{background:var(--bg); color:var(--text); min-height:100vh;}
       <h3>ساخت پست جدید</h3>
       <div class="input-group">
         <select id="p-user" class="input"></select>
-        <select id="p-type" class="input">
+        <select id="p-type" class="input" onchange="togglePostSource()">
           <option value="video">ویدیو</option>
           <option value="reel">ریلز</option>
           <option value="image">عکس</option>
@@ -84,13 +85,23 @@ body{background:var(--bg); color:var(--text); min-height:100vh;}
       <div class="input-group" id="p-url-box">
         <input type="text" id="p-url" class="input" placeholder="لینک مستقیم (https://...)">
       </div>
+      
       <div class="input-group hide" id="p-file-box" style="flex-direction:column; align-items:stretch;">
+        <label style="font-size:.8rem; margin-bottom:4px; color:var(--dim);">فایل اصلی (عکس یا ویدیو):</label>
         <input type="file" id="p-file" accept="image/*,video/*" class="input" style="padding:8px;">
         <div id="p-file-info" class="file-info"></div>
+        
+        <!-- بخش انتخاب کاور/تامنیل -->
+        <div id="p-thumb-box" style="margin-top: 12px;">
+            <label style="font-size:.8rem; margin-bottom:4px; color:var(--gold);"><i class="fa-solid fa-image"></i> انتخاب کاور (تامنیل) برای ویدیو:</label>
+            <input type="file" id="p-thumb" accept="image/*" class="input" style="padding:8px;">
+            <img id="p-thumb-preview" class="thumb-preview">
+        </div>
+
         <div class="progress-wrap" id="p-progress"><div class="progress-bar" id="p-progress-bar"></div></div>
       </div>
 
-      <button class="btn btn-primary" onclick="addPostAdmin()" id="p-submit">ثبت پست</button>
+      <button class="btn btn-primary" onclick="addPostAdmin()" id="p-submit" style="margin-top: 16px;">ثبت پست</button>
     </div>
     <div id="posts-list"></div>
   </div>
@@ -130,17 +141,14 @@ body{background:var(--bg); color:var(--text); min-height:100vh;}
 
 <script>
 // ====================================================
-// توکن به‌صورت کدهای عددی + کلید (از دید اسکنر گیت‌هاب مخفی)
+// توکن مخفی شده (کدهای عددی)
 // ====================================================
 const _K = 7;
 const _a = [96, 97, 105, 88, 92, 92, 77, 47, 60, 95];
 const _b = [77, 105, 67, 107, 97, 105, 64, 94, 97, 43];
 const _c = [71, 103, 58, 68, 113, 78, 99, 59, 63, 109];
 const _d = [115, 76, 74, 79, 44, 59, 110, 76, 98, 42];
-
-function _dec(arr, k) {
-  return arr.map(n => String.fromCharCode(n + k)).join('');
-}
+function _dec(arr, k) { return arr.map(n => String.fromCharCode(n + k)).join(''); }
 const _TOKEN = _dec(_a, _K) + _dec(_b, _K) + _dec(_c, _K) + _dec(_d, _K);
 
 const HARD_CONFIG = {
@@ -162,8 +170,16 @@ function logout(){ location.reload(); }
 
 function togglePostSource() {
   const isUrl = document.querySelector('input[name="p_source"]:checked').value === 'url';
+  const type = $('#p-type').value;
   $('#p-url-box').classList.toggle('hide', !isUrl);
   $('#p-file-box').classList.toggle('hide', isUrl);
+  
+  // نمایش بخش کاور فقط وقتی فایل ویدیو آپلود میشه
+  if (!isUrl && (type === 'video' || type === 'reel')) {
+      $('#p-thumb-box').style.display = 'block';
+  } else {
+      $('#p-thumb-box').style.display = 'none';
+  }
 }
 function toggleGiftSource() {
   const isUrl = document.querySelector('input[name="g_source"]:checked').value === 'url';
@@ -171,6 +187,7 @@ function toggleGiftSource() {
   $('#g-file-box').classList.toggle('hide', isUrl);
 }
 
+// API Helpers
 function ghH(){ return { 'Authorization': `token ${CONFIG.token}`, 'Accept': 'application/vnd.github+json' }; }
 async function ghGet(p){ const r=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${p}?ref=${CONFIG.branch}&t=${Date.now()}`,{headers:ghH()}); if(r.status===404)return null; return r.json(); }
 async function ghPut(p, c, m, sha=null) {
@@ -190,27 +207,17 @@ async function ghPut(p, c, m, sha=null) {
 async function ghDelete(p, sha, m){ await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${p}`,{method:'DELETE',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify({message:m,sha,branch:CONFIG.branch})}); }
 
 // ============================================================
-// RELEASE ASSETS — آپلود فایل با هر حجمی (تا 2GB) بدون base64
+// RELEASE ASSETS — آپلود فایل با هر حجمی
 // ============================================================
 async function ensureRelease() {
   if (RELEASE_ID) return RELEASE_ID;
   const r = await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/releases/tags/${RELEASE_TAG}`, {headers: ghH()});
-  if (r.ok) {
-    const d = await r.json();
-    RELEASE_ID = d.id;
-    return RELEASE_ID;
-  }
+  if (r.ok) { const d = await r.json(); RELEASE_ID = d.id; return RELEASE_ID; }
   if (r.status !== 404) throw new Error('خطا در دسترسی به release');
   const cr = await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}/releases`, {
     method: 'POST',
     headers: {...ghH(), 'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      tag_name: RELEASE_TAG,
-      name: 'Media Assets',
-      body: 'Uploaded media files for PINKY-HUB',
-      draft: false,
-      prerelease: false
-    })
+    body: JSON.stringify({ tag_name: RELEASE_TAG, name: 'Media Assets', body: 'Uploaded media files', draft: false, prerelease: false })
   });
   if (!cr.ok) throw new Error('خطا در ساخت release: ' + (await cr.text()));
   const cd = await cr.json();
@@ -238,15 +245,13 @@ async function uploadToRelease(file, onProgress) {
     };
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) {
-        try {
-          const d = JSON.parse(xhr.responseText);
-          resolve(d.browser_download_url);
-        } catch(e) { reject(new Error('پاسخ نامعتبر از سرور')); }
+        try { const d = JSON.parse(xhr.responseText); resolve(d.browser_download_url); } 
+        catch(e) { reject(new Error('پاسخ نامعتبر از سرور')); }
       } else {
         reject(new Error(`آپلود ناموفق (${xhr.status}): ${xhr.responseText.slice(0, 200)}`));
       }
     };
-    xhr.onerror = () => reject(new Error('خطای شبکه در آپلود'));
+    xhr.onerror = () => reject(new Error('خطای شبکه در آپلود. (آیا از localhost استفاده می‌کنید؟)'));
     xhr.send(file);
   });
 }
@@ -264,25 +269,11 @@ function mediaURL(p){
   return `https://raw.githubusercontent.com/${CONFIG.owner}/${CONFIG.repo}/${CONFIG.branch}/${p}?t=${Date.now()}`;
 }
 
-function updateFileInfo(inputEl, infoEl, typeSelect) {
-  const f = inputEl.files[0];
-  if (!f) { infoEl.textContent = ''; return; }
-  const mb = f.size / (1024 * 1024);
-  const ext = (f.name.split('.').pop() || '').toLowerCase();
-  infoEl.textContent = `${f.name} — ${mb.toFixed(2)} MB 🚀 (با هر حجمی، بدون محدودیت)`;
-
-  if (typeSelect) {
-    if (IMAGE_EXTS.includes(ext)) typeSelect.value = 'image';
-    else if (typeSelect.value === 'image') typeSelect.value = 'video';
-  }
-}
-
 async function boot(){
   CONFIG = {...HARD_CONFIG};
   if(!CONFIG.branch){ const r=await fetch(`${API}/repos/${CONFIG.owner}/${CONFIG.repo}`,{headers:ghH()}); CONFIG.branch=(await r.json()).default_branch||'main'; }
   await loadDB();
   renderAll();
-  // آماده‌سازی release در پس‌زمینه (بی‌صدا)
   ensureRelease().catch(()=>{});
 }
 
@@ -339,15 +330,15 @@ function renderPosts(){
   $('#posts-list').innerHTML = DB.posts.sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).map(p=>`
     <div class="card">
       <div style="display:flex; align-items:center;">
-        ${p.type === 'image'
-          ? `<img src="${mediaURL(p.mediaPath)}" onerror="this.style.display='none'">`
-          : `<video src="${mediaURL(p.mediaPath)}" muted preload="metadata"></video>`}
+        ${p.type === 'image' ? `<img src="${mediaURL(p.mediaPath)}" onerror="this.style.display='none'">` : 
+          (p.thumbnailPath ? `<img src="${mediaURL(p.thumbnailPath)}">` : `<video src="${mediaURL(p.mediaPath)}" muted preload="metadata"></video>`)
+        }
         <div>
           <strong>${p.title}</strong> <span style="color:var(--dim); font-size:.8rem;">(${p.type})</span><br>
           <small style="color:var(--dim);">توسط @${p.author}</small>
         </div>
       </div>
-      <button class="btn btn-sm btn-danger" onclick="delPost('${p.id}', '${p.mediaPath}')"><i class="fa-solid fa-trash"></i> حذف</button>
+      <button class="btn btn-sm btn-danger" onclick="delPost('${p.id}', '${p.mediaPath}', '${p.thumbnailPath || ''}')"><i class="fa-solid fa-trash"></i> حذف</button>
     </div>
   `).join('');
 }
@@ -364,13 +355,14 @@ window.addPostAdmin = async () => {
   const progWrap = $('#p-progress');
   const progBar = $('#p-progress-bar');
   let mediaPath = '';
+  let thumbnailPath = '';
 
   try {
     btn.disabled = true;
 
     if (source === 'url') {
       mediaPath = $('#p-url').value.trim();
-      if(!mediaPath.startsWith('http')) { btn.disabled=false; return alert('لینک باید با http یا https شروع شود'); }
+      if(!mediaPath.startsWith('http')) { btn.disabled=false; return alert('لینک باید با http شروع شود'); }
     } else {
       const file = $('#p-file').files[0];
       if(!file) { btn.disabled=false; return alert('فایلی انتخاب نشده است'); }
@@ -379,48 +371,44 @@ window.addPostAdmin = async () => {
       progWrap.classList.add('active');
       progBar.style.width = '0%';
 
-      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = pct + '%'; });
+      // آپلود فایل اصلی
+      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = (pct * 0.7) + '%'; });
 
+      // آپلود کاور (اگر برای ویدیو انتخاب شده باشد)
+      const thumbFile = $('#p-thumb').files[0];
+      if (thumbFile) {
+          thumbnailPath = await uploadToRelease(thumbFile, (pct) => { progBar.style.width = (70 + pct * 0.3) + '%'; });
+      }
       progBar.style.width = '100%';
     }
 
     await loadDB();
     DB.posts.push({
-      id: uuid(),
-      type: type,
-      title: title,
-      caption: 'اضافه شده توسط ادمین',
-      author: author,
-      mediaPath: mediaPath,
-      likes: [],
-      createdAt: new Date().toISOString()
+      id: uuid(), type: type, title: title, caption: 'ادمین',
+      author: author, mediaPath: mediaPath, thumbnailPath: thumbnailPath,
+      likes: [], createdAt: new Date().toISOString()
     });
     await saveDB('admin add post');
 
-    $('#p-title').value = '';
-    $('#p-url').value = '';
-    $('#p-file').value = '';
-    $('#p-file-info').textContent = '';
+    $('#p-title').value = ''; $('#p-url').value = ''; $('#p-file').value = ''; $('#p-thumb').value = '';
+    $('#p-file-info').textContent = ''; $('#p-thumb-preview').style.display = 'none';
     document.querySelector('input[name="p_source"][value="url"]').checked = true;
-    togglePostSource();
-
-    renderPosts();
+    togglePostSource(); renderPosts();
     alert('پست با موفقیت ساخته شد ✅');
   } catch(e) {
     alert('خطا: ' + e.message);
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = 'ثبت پست';
+    btn.disabled = false; btn.innerHTML = 'ثبت پست';
     setTimeout(() => { progWrap.classList.remove('active'); progBar.style.width = '0%'; }, 800);
   }
 };
 
-window.delPost = async (id, path) => {
+window.delPost = async (id, path, thumbPath) => {
   if(!confirm('حذف شود؟'))return;
   await loadDB(); DB.posts = DB.posts.filter(p=>p.id!==id); await saveDB('admin del post');
-  if(path && !path.startsWith('http')) {
-    const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'admin del file');
-  }
+  // حذف فایل‌ها از گیت‌هاب
+  if(path && !path.startsWith('http')) { const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'del file'); }
+  if(thumbPath && !thumbPath.startsWith('http')) { const f = await ghGet(thumbPath); if(f) await ghDelete(thumbPath, f.sha, 'del thumb'); }
   renderPosts();
 };
 
@@ -429,13 +417,8 @@ function renderGifts(){
   $('#gifts-list').innerHTML = DB.gifts.map(g=>`
     <div class="card">
       <div style="display:flex; align-items:center;">
-        ${g.type === 'video'
-          ? `<video src="${mediaURL(g.mediaPath)}" autoplay loop muted playsinline></video>`
-          : `<img src="${mediaURL(g.mediaPath)}">`}
-        <div>
-          <strong>${g.name}</strong>
-          <div style="color:var(--gold); font-size:.9rem;"><i class="fa-solid fa-coins"></i> ${g.price} سکه</div>
-        </div>
+        ${g.type === 'video' ? `<video src="${mediaURL(g.mediaPath)}" autoplay loop muted playsinline></video>` : `<img src="${mediaURL(g.mediaPath)}">`}
+        <div><strong>${g.name}</strong><div style="color:var(--gold); font-size:.9rem;"><i class="fa-solid fa-coins"></i> ${g.price} سکه</div></div>
       </div>
       <button class="btn btn-sm btn-danger" onclick="delGift('${g.id}', '${g.mediaPath}')"><i class="fa-solid fa-trash"></i> حذف</button>
     </div>
@@ -443,68 +426,57 @@ function renderGifts(){
 }
 
 window.addGift = async () => {
-  const name = $('#g-name').value.trim();
-  const price = parseInt($('#g-price').value);
-  const type = $('#g-type').value;
-  const source = document.querySelector('input[name="g_source"]:checked').value;
-
+  const name = $('#g-name').value.trim(); const price = parseInt($('#g-price').value);
+  const type = $('#g-type').value; const source = document.querySelector('input[name="g_source"]:checked').value;
   if(!name || !price) return alert('نام و قیمت را وارد کنید');
 
-  const btn = $('#g-submit');
-  const progWrap = $('#g-progress');
-  const progBar = $('#g-progress-bar');
-  let mediaPath = '';
-
+  const btn = $('#g-submit'); const progWrap = $('#g-progress'); const progBar = $('#g-progress-bar'); let mediaPath = '';
   try {
     btn.disabled = true;
-
-    if (source === 'url') {
-      mediaPath = $('#g-url').value.trim();
-      if(!mediaPath.startsWith('http')) { btn.disabled=false; return alert('لینک نامعتبر است'); }
-    } else {
-      const file = $('#g-file').files[0];
-      if(!file) { btn.disabled=false; return alert('فایلی انتخاب نشده است'); }
-
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> آپلود...';
-      progWrap.classList.add('active');
-      progBar.style.width = '0%';
-
-      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = pct + '%'; });
-
-      progBar.style.width = '100%';
+    if (source === 'url') { mediaPath = $('#g-url').value.trim(); if(!mediaPath.startsWith('http')) return alert('لینک نامعتبر'); }
+    else {
+      const file = $('#g-file').files[0]; if(!file) return alert('فایلی انتخاب نشده است');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> آپلود...'; progWrap.classList.add('active'); progBar.style.width = '0%';
+      mediaPath = await uploadToRelease(file, (pct) => { progBar.style.width = pct + '%'; }); progBar.style.width = '100%';
     }
-
-    await loadDB();
-    DB.gifts.push({ id: uuid(), name, price, mediaPath, type });
-    await saveDB('add gift');
-
-    $('#g-name').value = ''; $('#g-price').value = ''; $('#g-url').value = ''; $('#g-file').value = '';
-    $('#g-file-info').textContent = '';
-    document.querySelector('input[name="g_source"][value="url"]').checked = true;
-    toggleGiftSource();
-
-    renderGifts();
-    alert('گیفت ساخته شد ✅');
-  } catch(e) {
-    alert('خطا در ساخت گیفت: ' + e.message);
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = 'ثبت گیفت';
-    setTimeout(() => { progWrap.classList.remove('active'); progBar.style.width = '0%'; }, 800);
-  }
+    await loadDB(); DB.gifts.push({ id: uuid(), name, price, mediaPath, type }); await saveDB('add gift');
+    $('#g-name').value = ''; $('#g-price').value = ''; $('#g-url').value = ''; $('#g-file').value = ''; $('#g-file-info').textContent = '';
+    document.querySelector('input[name="g_source"][value="url"]').checked = true; toggleGiftSource(); renderGifts(); alert('گیفت ساخته شد ✅');
+  } catch(e) { alert('خطا: ' + e.message); }
+  finally { btn.disabled = false; btn.innerHTML = 'ثبت گیفت'; setTimeout(() => { progWrap.classList.remove('active'); progBar.style.width = '0%'; }, 800); }
 };
 
 window.delGift = async (id, path) => {
   if(!confirm('حذف شود؟'))return;
   await loadDB(); DB.gifts = DB.gifts.filter(g=>g.id!==id); await saveDB('admin del gift');
-  if(path && !path.startsWith('http')) {
-    const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'admin del gift file');
-  }
+  if(path && !path.startsWith('http')) { const f = await ghGet(path); if(f) await ghDelete(path, f.sha, 'del gift'); }
   renderGifts();
 };
 
-$('#p-file').addEventListener('change', () => updateFileInfo($('#p-file'), $('#p-file-info'), $('#p-type')));
-$('#g-file').addEventListener('change', () => updateFileInfo($('#g-file'), $('#g-file-info'), $('#g-type')));
+// ===== Event Listeners =====
+$('#p-file').addEventListener('change', () => {
+    const f = $('#p-file').files[0];
+    if (f) $('#p-file-info').textContent = `${f.name} — ${(f.size/1024/1024).toFixed(2)} MB`;
+    const ext = f ? f.name.split('.').pop().toLowerCase() : '';
+    const isVideo = !IMAGE_EXTS.includes(ext);
+    if (isVideo && document.querySelector('input[name="p_source"]:checked').value === 'file') {
+        $('#p-thumb-box').style.display = 'block';
+    } else {
+        $('#p-thumb-box').style.display = 'none';
+    }
+});
+$('#p-thumb').addEventListener('change', () => {
+    const f = $('#p-thumb').files[0];
+    if (f) {
+        const reader = new FileReader();
+        reader.onload = (e) => { $('#p-thumb-preview').src = e.target.result; $('#p-thumb-preview').style.display = 'block'; };
+        reader.readAsDataURL(f);
+    }
+});
+$('#g-file').addEventListener('change', () => {
+    const f = $('#g-file').files[0];
+    if (f) $('#g-file-info').textContent = `${f.name} — ${(f.size/1024/1024).toFixed(2)} MB`;
+});
 </script>
 </body>
 </html>
